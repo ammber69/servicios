@@ -713,15 +713,15 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   z-index: 999999;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
-  overflow: hidden;
+  align-items: flex-start;
+  padding: 2.5rem 1rem;
+  overflow-y: auto;
   animation: fadeIn 0.2s ease-out;
 }
 
@@ -729,13 +729,15 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.4);
   padding: 1.75rem;
   position: relative;
-  max-height: 88vh;
+  width: 95%;
+  max-width: 1100px;
+  max-height: 85vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  margin: auto 0;
   animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

@@ -1,13 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 export default function ServiceDetailModal({ item, onClose }) {
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, []);
-
   if (!item) return null;
 
   const { numpaq, line_code, line_name, prices, classifications, items_by_agency, cause_summary, price_diff } = item;
