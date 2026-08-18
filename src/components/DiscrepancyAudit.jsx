@@ -1,12 +1,10 @@
 import React, { useState, useMemo } from 'react';
 
 export default function DiscrepancyAudit({ data }) {
-  if (!data) return null;
-
-  const branches = data.branches || [];
-  const matrix = data.code_matrix || [];
-  const stats = data.stats || {};
-  const internalDuplicates = data.internal_duplicates || {};
+  const branches = useMemo(() => data?.branches || [], [data]);
+  const matrix = useMemo(() => data?.code_matrix || [], [data]);
+  const stats = useMemo(() => data?.stats || {}, [data]);
+  const internalDuplicates = useMemo(() => data?.internal_duplicates || {}, [data]);
 
   const [activeSubTab, setActiveSubTab] = useState('LOCAL_CREATED');
   const [missingFilter, setMissingFilter] = useState('ALL_MISSING');
@@ -47,17 +45,18 @@ export default function DiscrepancyAudit({ data }) {
     return map;
   }, [branches, localJobs]);
 
+  const totalInternalDuplicates = useMemo(() => {
+    return Object.values(internalDuplicates).reduce((acc, curr) => acc + curr.length, 0);
+  }, [internalDuplicates]);
+
+  if (!data) return null;
+
   const toggleBranchExpand = (b) => {
     setExpandedBranches(prev => ({
       ...prev,
       [b]: !prev[b]
     }));
   };
-
-  // Internal duplicates list calculation
-  const totalInternalDuplicates = useMemo(() => {
-    return Object.values(internalDuplicates).reduce((acc, curr) => acc + curr.length, 0);
-  }, [internalDuplicates]);
 
   return (
     <div className="section-card">

@@ -1,10 +1,8 @@
 import React, { useState, useMemo } from 'react';
 
 export default function CatalogMatrixTable({ data }) {
-  if (!data) return null;
-
-  const branches = data.branches || [];
-  const matrix = data.code_matrix || [];
+  const branches = useMemo(() => data?.branches || [], [data]);
+  const matrix = useMemo(() => data?.code_matrix || [], [data]);
 
   const branchDisplayNames = {
     CORDOBA: 'COR',
@@ -80,6 +78,8 @@ export default function CatalogMatrixTable({ data }) {
       setCurrentPage(newPage);
     }
   };
+
+  if (!data) return null;
 
   return (
     <div className="section-card">

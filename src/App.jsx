@@ -1,23 +1,45 @@
 import React, { useState, useEffect } from 'react';
+// Jobs Components
 import SummaryCards from './components/SummaryCards';
 import CategoryComparisonTable from './components/CategoryComparisonTable';
 import CatalogMatrixTable from './components/CatalogMatrixTable';
 import DiscrepancyAudit from './components/DiscrepancyAudit';
 
+// Services Components
+import ServicesSummaryCards from './components/services/ServicesSummaryCards';
+import ServicesAuditTab from './components/services/ServicesAuditTab';
+import ServicesModelComparerTab from './components/services/ServicesModelComparerTab';
+import ServicesMatrixTab from './components/services/ServicesMatrixTab';
+
 function App() {
-  const [data, setData] = useState(null);
+  const [activeModule, setActiveModule] = useState('SERVICIOS'); // 'TRABAJOS' or 'SERVICIOS'
+
+  // Jobs data
+  const [jobsData, setJobsData] = useState(null);
+  // Services data
+  const [servicesData, setServicesData] = useState(null);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeTab, setActiveTab] = useState('AUDIT');
+
+  // Active sub-tabs
+  const [activeJobsTab, setActiveJobsTab] = useState('AUDIT');
+  const [activeServicesTab, setActiveServicesTab] = useState('AUDIT');
 
   useEffect(() => {
-    fetch('/catalogs_data.json')
-      .then(res => {
-        if (!res.ok) throw new Error('No se pudo cargar la base de datos de catálogos');
+    Promise.all([
+      fetch('/catalogs_data.json').then(res => {
+        if (!res.ok) throw new Error('No se pudo cargar el catálogo de trabajos');
+        return res.json();
+      }),
+      fetch('/services_data.json').then(res => {
+        if (!res.ok) throw new Error('No se pudo cargar el catálogo de servicios');
         return res.json();
       })
-      .then(json => {
-        setData(json);
+    ])
+      .then(([jData, sData]) => {
+        setJobsData(jData);
+        setServicesData(sData);
         setLoading(false);
       })
       .catch(err => {
@@ -32,8 +54,8 @@ function App() {
       <div className="app-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
         <div style={{ textAlign: 'center' }}>
           <div style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--nissan-red)' }}>⚙️</div>
-          <h2 style={{ fontWeight: '800', color: 'var(--nissan-red)' }}>Cargando Catálogos de las 6 Agencias Nissan...</h2>
-          <p style={{ color: 'var(--text-secondary)' }}>Procesando 12,746 registros de servicio de Gasme Automotriz</p>
+          <h2 style={{ fontWeight: '800', color: 'var(--nissan-red)' }}>Cargando Catálogos y Paquetes de Servicio Nissan...</h2>
+          <p style={{ color: 'var(--text-secondary)' }}>Procesando 34,994 registros de Paquetes y 12,746 registros de Trabajos (Gasme Automotriz)</p>
         </div>
       </div>
     );
@@ -52,68 +74,126 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Header */}
+      {/* App Header */}
       <header className="app-header">
         <div>
           <div className="brand-title">
             <span className="brand-badge">NISSAN</span>
             <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-secondary)' }}>
-              GASME AUTOMOTRIZ • Módulo CRM de Estandarización de Servicios
+              GASME AUTOMOTRIZ • Módulo CRM de Estandarización
             </span>
           </div>
           <h1 className="main-title" style={{ marginTop: '0.4rem' }}>
-            Comparativo y Auditoría de Catálogos de Trabajo
+            {activeModule === 'SERVICIOS' ? 'Análisis y Auditoría de Paquetes de Servicio' : 'Comparativo y Auditoría de Catálogos de Trabajo'}
           </h1>
           <p className="subtitle">
             Diagnóstico para directivos y gerencia: Homologación entre Córdoba, Juchitán, Orizaba, Salina Cruz, Tierra Blanca y Tuxtepec.
           </p>
         </div>
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-          <span className="badge badge-nissan" style={{ fontSize: '0.8rem', padding: '0.4rem 0.75rem' }}>
-            🔴 6 Agencias Analizadas
-          </span>
-          <span className="badge badge-purple" style={{ fontSize: '0.8rem', padding: '0.4rem 0.75rem' }}>
-            🟣 2,223 Códigos Únicos
-          </span>
+
+        {/* Top-Level Module Switcher */}
+        <div className="module-switcher-container">
+          <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-secondary)', marginBottom: '0.3rem', textAlign: 'right' }}>
+            MÓDULO ACTIVO:
+          </div>
+          <div className="module-switcher">
+            <button
+              className={`module-btn ${activeModule === 'SERVICIOS' ? 'active' : ''}`}
+              onClick={() => setActiveModule('SERVICIOS')}
+            >
+              📦 Paquetes de Servicio
+              <span className="module-badge">64 Combos</span>
+            </button>
+            <button
+              className={`module-btn ${activeModule === 'TRABAJOS' ? 'active' : ''}`}
+              onClick={() => setActiveModule('TRABAJOS')}
+            >
+              🛠️ Catálogo de Trabajos
+              <span className="module-badge">2,223 Únicos</span>
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* KPI Executive Summary */}
-      <SummaryCards data={data} />
+      {/* Module Content */}
+      {activeModule === 'SERVICIOS' ? (
+        <>
+          {/* Services KPI Cards */}
+          <ServicesSummaryCards data={servicesData} />
 
-      {/* Navigation Tabs */}
-      <nav className="tabs-nav">
-        <button
-          className={`tab-btn ${activeTab === 'AUDIT' ? 'active' : ''}`}
-          onClick={() => setActiveTab('AUDIT')}
-        >
-          ⚠️ Auditoría de Inconsistencias y Creaciones Locales
-          <span className="tab-badge" style={{ background: activeTab === 'AUDIT' ? 'rgba(255,255,255,0.3)' : 'var(--nissan-red)' }}>
-            {(data?.stats?.local_creations || 83) + (data?.stats?.critical_collisions || 131)}
-          </span>
-        </button>
+          {/* Services Sub-Tabs */}
+          <nav className="tabs-nav">
+            <button
+              className={`tab-btn ${activeServicesTab === 'AUDIT' ? 'active' : ''}`}
+              onClick={() => setActiveServicesTab('AUDIT')}
+            >
+              ⚠️ Auditoría de Inconsistencias y Causa Raíz
+              <span className="tab-badge" style={{ background: activeServicesTab === 'AUDIT' ? 'rgba(255,255,255,0.3)' : 'var(--nissan-red)' }}>
+                {(servicesData?.stats?.composition_mismatch_combinations || 165) + (servicesData?.stats?.local_creations_packages || 4)}
+              </span>
+            </button>
 
-        <button
-          className={`tab-btn ${activeTab === 'SUMMARY' ? 'active' : ''}`}
-          onClick={() => setActiveTab('SUMMARY')}
-        >
-          📊 Conteo por Categoría y Zona
-        </button>
+            <button
+              className={`tab-btn ${activeServicesTab === 'MODEL_COMPARE' ? 'active' : ''}`}
+              onClick={() => setActiveServicesTab('MODEL_COMPARE')}
+            >
+              🚗 Comparativo por Modelo / Línea de Auto
+            </button>
 
-        <button
-          className={`tab-btn ${activeTab === 'MATRIX' ? 'active' : ''}`}
-          onClick={() => setActiveTab('MATRIX')}
-        >
-          🔍 Matriz Completa por Código (2,223)
-        </button>
-      </nav>
+            <button
+              className={`tab-btn ${activeServicesTab === 'MATRIX' ? 'active' : ''}`}
+              onClick={() => setActiveServicesTab('MATRIX')}
+            >
+              📊 Matriz Completa por Paquete (64)
+            </button>
+          </nav>
 
-      {/* Tab Content */}
-      <main>
-        {activeTab === 'AUDIT' && <DiscrepancyAudit data={data} />}
-        {activeTab === 'SUMMARY' && <CategoryComparisonTable data={data} />}
-        {activeTab === 'MATRIX' && <CatalogMatrixTable data={data} />}
-      </main>
+          <main>
+            {activeServicesTab === 'AUDIT' && <ServicesAuditTab data={servicesData} />}
+            {activeServicesTab === 'MODEL_COMPARE' && <ServicesModelComparerTab data={servicesData} />}
+            {activeServicesTab === 'MATRIX' && <ServicesMatrixTab data={servicesData} />}
+          </main>
+        </>
+      ) : (
+        <>
+          {/* Jobs KPI Executive Summary */}
+          <SummaryCards data={jobsData} />
+
+          {/* Jobs Navigation Tabs */}
+          <nav className="tabs-nav">
+            <button
+              className={`tab-btn ${activeJobsTab === 'AUDIT' ? 'active' : ''}`}
+              onClick={() => setActiveJobsTab('AUDIT')}
+            >
+              ⚠️ Auditoría de Inconsistencias y Creaciones Locales
+              <span className="tab-badge" style={{ background: activeJobsTab === 'AUDIT' ? 'rgba(255,255,255,0.3)' : 'var(--nissan-red)' }}>
+                {(jobsData?.stats?.local_creations || 83) + (jobsData?.stats?.critical_collisions || 131)}
+              </span>
+            </button>
+
+            <button
+              className={`tab-btn ${activeJobsTab === 'SUMMARY' ? 'active' : ''}`}
+              onClick={() => setActiveJobsTab('SUMMARY')}
+            >
+              📊 Conteo por Categoría y Zona
+            </button>
+
+            <button
+              className={`tab-btn ${activeJobsTab === 'MATRIX' ? 'active' : ''}`}
+              onClick={() => setActiveJobsTab('MATRIX')}
+            >
+              🔍 Matriz Completa por Código (2,223)
+            </button>
+          </nav>
+
+          {/* Jobs Tab Content */}
+          <main>
+            {activeJobsTab === 'AUDIT' && <DiscrepancyAudit data={jobsData} />}
+            {activeJobsTab === 'SUMMARY' && <CategoryComparisonTable data={jobsData} />}
+            {activeJobsTab === 'MATRIX' && <CatalogMatrixTable data={jobsData} />}
+          </main>
+        </>
+      )}
     </div>
   );
 }
