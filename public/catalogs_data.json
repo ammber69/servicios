@@ -18,7 +18,2153 @@
     "missing_2_branches": 2,
     "missing_3_branches": 2,
     "missing_4_branches": 3,
-    "missing_5_branches": 83
+    "missing_5_branches": 83,
+    "total_internal_duplicates": 250
+  },
+  "internal_duplicates": {
+    "CORDOBA": [
+      {
+        "description": "CAMBIAR AMPLIACIÓN GRAVE",
+        "codes": [
+          "046",
+          "047",
+          "048"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIAR ESPEJO  LATERAL PUERTA  LEVE",
+        "codes": [
+          "433",
+          "434",
+          "435"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIAR LAMINA CIERRE MEDIA",
+        "codes": [
+          "602",
+          "603",
+          "604"
+        ],
+        "count": 3
+      },
+      {
+        "description": "D+M PUERTA  GRAVE",
+        "codes": [
+          "780",
+          "781"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  GRAVE",
+        "codes": [
+          "702",
+          "705"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  LEVE",
+        "codes": [
+          "700",
+          "703"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  MEDIO",
+        "codes": [
+          "701",
+          "704"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVESTIMIENTO COMPARTIMIENTO DE MOTO",
+        "codes": [
+          "866",
+          "867",
+          "868"
+        ],
+        "count": 3
+      },
+      {
+        "description": "D+M TAPA CAJUELA LEVE",
+        "codes": [
+          "223",
+          "224",
+          "225"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PULIDO Y ENCERADO",
+        "codes": [
+          "121",
+          "PE1"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA GRAVE",
+        "codes": [
+          "104",
+          "249"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA LEVE",
+        "codes": [
+          "102",
+          "247"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA MEDIO",
+        "codes": [
+          "103",
+          "248"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BISAGRAS  LEVE",
+        "codes": [
+          "130",
+          "132"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR CALAVERA  MEDIO",
+        "codes": [
+          "251",
+          "253"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR FACIA  GRAVE",
+        "codes": [
+          "497",
+          "498",
+          "499"
+        ],
+        "count": 3
+      },
+      {
+        "description": "REPARAR FRONTAL GRAVE",
+        "codes": [
+          "564",
+          "565"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR TAPA DE DISTRIBUIDOR DE CABEZA D",
+        "codes": [
+          "950",
+          "951",
+          "952"
+        ],
+        "count": 3
+      },
+      {
+        "description": "REPARAR TIRANTE PUERT  MEDIO",
+        "codes": [
+          "960",
+          "961"
+        ],
+        "count": 2
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO GRAVE",
+        "codes": [
+          "280",
+          "577",
+          "729",
+          "862"
+        ],
+        "count": 4
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO LEVE",
+        "codes": [
+          "278",
+          "575",
+          "727",
+          "860"
+        ],
+        "count": 4
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO MEDIO",
+        "codes": [
+          "279",
+          "576",
+          "728",
+          "861"
+        ],
+        "count": 4
+      },
+      {
+        "description": "PINTAR PUNTA DE BASTIDOR DERECHO/IZQUIER",
+        "codes": [
+          "A93",
+          "A94",
+          "A95"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR PUNTA LARGUERO DEL/TRAS/DER/IZQ.",
+        "codes": [
+          "B86",
+          "B87",
+          "B88"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR SOPORTE INTERNO DE FACIA MEDIO",
+        "codes": [
+          "B74",
+          "B75"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PINTAR SOPORTE LARGUERO DEL/TRAS/DER/IZQ",
+        "codes": [
+          "B83",
+          "B84",
+          "B85"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE ACEITE Y FILTRO EXPRESS",
+        "codes": [
+          "E43",
+          "E40",
+          "E44"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE BALATAS DELANTERAS",
+        "codes": [
+          "B51",
+          "M03"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PROMO CAMBIO DE ACEITE Y FILTRO",
+        "codes": [
+          "3PK",
+          "PA1",
+          "PK1",
+          "PK2",
+          "PK4",
+          "PK5"
+        ],
+        "count": 6
+      },
+      {
+        "description": "CAMBIO DE BULBO DE TEMPERATURA",
+        "codes": [
+          "B28",
+          "B21"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CHICOTE DE VELOCIMETRO",
+        "codes": [
+          "C16",
+          "C29"
+        ],
+        "count": 2
+      },
+      {
+        "description": "DESCONTAMINACION DE CRISTALES",
+        "codes": [
+          "0DX",
+          "DL1",
+          "D21"
+        ],
+        "count": 3
+      },
+      {
+        "description": "LAVADO DE CARROCERIA",
+        "codes": [
+          "L21",
+          "LV3"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE ANTICONGELANTE",
+        "codes": [
+          "A59",
+          "AST"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE FILTRO DIESEL",
+        "codes": [
+          "F52",
+          "FD1"
+        ],
+        "count": 2
+      },
+      {
+        "description": "VUELVEACASA2",
+        "codes": [
+          "CV2",
+          "VC2"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE MOTOR PROMOCION B13",
+        "codes": [
+          "M38",
+          "M39"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CLUTCH",
+        "codes": [
+          "C67",
+          "C68"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE FLECHA CARDAN",
+        "codes": [
+          "C35",
+          "F01"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CVT",
+        "codes": [
+          "J01",
+          "J07"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CORREGIR RUIDO DE TABLERO",
+        "codes": [
+          "C45",
+          "C46"
+        ],
+        "count": 2
+      }
+    ],
+    "JUCHITAN": [
+      {
+        "description": "CAMBIAR AMPLIACIÓN GRAVE",
+        "codes": [
+          "046",
+          "047",
+          "048"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIAR ESPEJO  LATERAL PUERTA  LEVE",
+        "codes": [
+          "433",
+          "434",
+          "435"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIAR LAMINA CIERRE MEDIA",
+        "codes": [
+          "602",
+          "603",
+          "604"
+        ],
+        "count": 3
+      },
+      {
+        "description": "D+M PUERTA  GRAVE",
+        "codes": [
+          "780",
+          "781"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  GRAVE",
+        "codes": [
+          "702",
+          "705"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  LEVE",
+        "codes": [
+          "700",
+          "703"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  MEDIO",
+        "codes": [
+          "701",
+          "704"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVESTIMIENTO COMPARTIMIENTO DE MOTO",
+        "codes": [
+          "866",
+          "867",
+          "868"
+        ],
+        "count": 3
+      },
+      {
+        "description": "D+M TAPA CAJUELA LEVE",
+        "codes": [
+          "223",
+          "224",
+          "225"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PULIDO Y ENCERADO",
+        "codes": [
+          "121",
+          "PE1"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA GRAVE",
+        "codes": [
+          "104",
+          "249"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA LEVE",
+        "codes": [
+          "102",
+          "247"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA MEDIO",
+        "codes": [
+          "103",
+          "248"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BISAGRAS  LEVE",
+        "codes": [
+          "130",
+          "132"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR CALAVERA  MEDIO",
+        "codes": [
+          "251",
+          "253"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR FACIA  GRAVE",
+        "codes": [
+          "497",
+          "498",
+          "499"
+        ],
+        "count": 3
+      },
+      {
+        "description": "REPARAR FRONTAL GRAVE",
+        "codes": [
+          "564",
+          "565"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR TAPA DE DISTRIBUIDOR DE CABEZA D",
+        "codes": [
+          "950",
+          "951",
+          "952"
+        ],
+        "count": 3
+      },
+      {
+        "description": "REPARAR TIRANTE PUERT  MEDIO",
+        "codes": [
+          "960",
+          "961"
+        ],
+        "count": 2
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO GRAVE",
+        "codes": [
+          "280",
+          "577",
+          "729",
+          "862"
+        ],
+        "count": 4
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO LEVE",
+        "codes": [
+          "278",
+          "575",
+          "727",
+          "860"
+        ],
+        "count": 4
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO MEDIO",
+        "codes": [
+          "279",
+          "576",
+          "728",
+          "861"
+        ],
+        "count": 4
+      },
+      {
+        "description": "PINTAR PUNTA DE BASTIDOR DERECHO/IZQUIER",
+        "codes": [
+          "A93",
+          "A94",
+          "A95"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR PUNTA LARGUERO DEL/TRAS/DER/IZQ.",
+        "codes": [
+          "B86",
+          "B87",
+          "B88"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR SOPORTE INTERNO DE FACIA MEDIO",
+        "codes": [
+          "B74",
+          "B75"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PINTAR SOPORTE LARGUERO DEL/TRAS/DER/IZQ",
+        "codes": [
+          "B83",
+          "B84",
+          "B85"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE ACEITE Y FILTRO EXPRESS",
+        "codes": [
+          "E43",
+          "E40",
+          "E44"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE BALATAS DELANTERAS",
+        "codes": [
+          "B51",
+          "M03"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PROMO CAMBIO DE ACEITE Y FILTRO",
+        "codes": [
+          "3PK",
+          "PA1",
+          "PK1",
+          "PK2",
+          "PK4",
+          "PK5"
+        ],
+        "count": 6
+      },
+      {
+        "description": "CAMBIO DE BULBO DE TEMPERATURA",
+        "codes": [
+          "B28",
+          "B21"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CHICOTE DE VELOCIMETRO",
+        "codes": [
+          "C16",
+          "C29"
+        ],
+        "count": 2
+      },
+      {
+        "description": "DESCONTAMINACION DE CRISTALES",
+        "codes": [
+          "DL1",
+          "D21"
+        ],
+        "count": 2
+      },
+      {
+        "description": "LAVADO DE CARROCERIA",
+        "codes": [
+          "L21",
+          "LV3"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE ANTICONGELANTE",
+        "codes": [
+          "A59",
+          "AST"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE FILTRO DIESEL",
+        "codes": [
+          "F52",
+          "FD1"
+        ],
+        "count": 2
+      },
+      {
+        "description": "VUELVEACASA2",
+        "codes": [
+          "CV2",
+          "VC2"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE MOTOR PROMOCION B13",
+        "codes": [
+          "M38",
+          "M39"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CLUTCH",
+        "codes": [
+          "C67",
+          "C68"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE FLECHA CARDAN",
+        "codes": [
+          "C35",
+          "F01"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CVT",
+        "codes": [
+          "J01",
+          "J07"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CORREGIR RUIDO DE TABLERO",
+        "codes": [
+          "C45",
+          "C46"
+        ],
+        "count": 2
+      }
+    ],
+    "ORIZABA": [
+      {
+        "description": "CAMBIAR AMPLIACIÓN GRAVE",
+        "codes": [
+          "046",
+          "047",
+          "048"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIAR ESPEJO  LATERAL PUERTA  LEVE",
+        "codes": [
+          "433",
+          "434",
+          "435"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIAR LAMINA CIERRE MEDIA",
+        "codes": [
+          "602",
+          "603",
+          "604"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE TABLERO DE INDICADORES",
+        "codes": [
+          "R31",
+          "T02"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M PUERTA  GRAVE",
+        "codes": [
+          "780",
+          "781"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  GRAVE",
+        "codes": [
+          "702",
+          "705"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  LEVE",
+        "codes": [
+          "700",
+          "703"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  MEDIO",
+        "codes": [
+          "701",
+          "704"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVESTIMIENTO COMPARTIMIENTO DE MOTO",
+        "codes": [
+          "866",
+          "867",
+          "868"
+        ],
+        "count": 3
+      },
+      {
+        "description": "D+M TAPA CAJUELA LEVE",
+        "codes": [
+          "223",
+          "224",
+          "225"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PULIDO Y ENCERADO",
+        "codes": [
+          "121",
+          "PE1"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA GRAVE",
+        "codes": [
+          "104",
+          "249"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA LEVE",
+        "codes": [
+          "102",
+          "247"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA MEDIO",
+        "codes": [
+          "103",
+          "248"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BISAGRAS  LEVE",
+        "codes": [
+          "130",
+          "132"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR CALAVERA  MEDIO",
+        "codes": [
+          "251",
+          "253"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR FACIA  GRAVE",
+        "codes": [
+          "497",
+          "498",
+          "499"
+        ],
+        "count": 3
+      },
+      {
+        "description": "REPARAR FRONTAL GRAVE",
+        "codes": [
+          "564",
+          "565"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR TAPA DE DISTRIBUIDOR DE CABEZA D",
+        "codes": [
+          "950",
+          "951",
+          "952"
+        ],
+        "count": 3
+      },
+      {
+        "description": "REPARAR TIRANTE PUERT  MEDIO",
+        "codes": [
+          "960",
+          "961"
+        ],
+        "count": 2
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO GRAVE",
+        "codes": [
+          "280",
+          "577",
+          "729",
+          "862"
+        ],
+        "count": 4
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO LEVE",
+        "codes": [
+          "278",
+          "575",
+          "727",
+          "860"
+        ],
+        "count": 4
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO MEDIO",
+        "codes": [
+          "279",
+          "576",
+          "728",
+          "861"
+        ],
+        "count": 4
+      },
+      {
+        "description": "LIMPIEZA DE LLUVIA ACIDA A CRISTALES",
+        "codes": [
+          "LAC",
+          "LLU"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PINTAR CAJA RUEDA DEL/TRAS/DERECHA/IZQUI",
+        "codes": [
+          "B17",
+          "B20",
+          "B21"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR PUERTA DEL/DER/IZQ LEVE",
+        "codes": [
+          "C21",
+          "C22",
+          "C23"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR PUERTA TRAS/DER/IZQ LEVE",
+        "codes": [
+          "C18",
+          "C19",
+          "C20"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR PUNTA DE BASTIDOR DERECHO/IZQUIER",
+        "codes": [
+          "A93",
+          "A94",
+          "A95"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR PUNTA LARGUERO DEL/TRAS/DER/IZQ.",
+        "codes": [
+          "B86",
+          "B87",
+          "B88"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR SOPORTE INTERNO DE FACIA MEDIO",
+        "codes": [
+          "B74",
+          "B75"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PINTAR SOPORTE LARGUERO DEL/TRAS/DER/IZQ",
+        "codes": [
+          "B83",
+          "B84",
+          "B85"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE ACEITE Y FILTRO EXPRESS",
+        "codes": [
+          "E43",
+          "E40",
+          "E44"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE CAJA DE DIRECCION",
+        "codes": [
+          "I01",
+          "C88"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE SILENCIADOR",
+        "codes": [
+          "S01",
+          "S04"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE TOPES DE DIRECCION",
+        "codes": [
+          "CTD",
+          "S20"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CARGA DE NITROGENO",
+        "codes": [
+          "NIT",
+          "CNI"
+        ],
+        "count": 2
+      },
+      {
+        "description": "LIMPIEZA CUERPO DE ACELERACION",
+        "codes": [
+          "LIC",
+          "LCA"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PROMO CAMBIO DE ACEITE Y FILTRO",
+        "codes": [
+          "3PK",
+          "PA1",
+          "PK1",
+          "PK2",
+          "PK4",
+          "PK5"
+        ],
+        "count": 6
+      },
+      {
+        "description": "INSTALACION DE ACCESORIOS",
+        "codes": [
+          "0Y5",
+          "SM5"
+        ],
+        "count": 2
+      },
+      {
+        "description": "LAVADO DE CARROCERIA",
+        "codes": [
+          "L21",
+          "LAV",
+          "LV3"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE PARRILLA",
+        "codes": [
+          "C94",
+          "P15"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE MOTOR PROMOCION B13",
+        "codes": [
+          "M38",
+          "M39"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CVT",
+        "codes": [
+          "J01",
+          "J07"
+        ],
+        "count": 2
+      },
+      {
+        "description": "LIMPIEZA Y AJUSTE DE FRENOS",
+        "codes": [
+          "LAF",
+          "T08"
+        ],
+        "count": 2
+      },
+      {
+        "description": "ALINEACION Y BALANCEO",
+        "codes": [
+          "AL2",
+          "AYB"
+        ],
+        "count": 2
+      }
+    ],
+    "SALINA_CRUZ": [
+      {
+        "description": "CAMBIAR AMPLIACIÓN GRAVE",
+        "codes": [
+          "046",
+          "047",
+          "048"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIAR ESPEJO  LATERAL PUERTA  LEVE",
+        "codes": [
+          "433",
+          "434",
+          "435"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIAR LAMINA CIERRE MEDIA",
+        "codes": [
+          "602",
+          "603",
+          "604"
+        ],
+        "count": 3
+      },
+      {
+        "description": "D+M PUERTA  GRAVE",
+        "codes": [
+          "780",
+          "781"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  GRAVE",
+        "codes": [
+          "702",
+          "705"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  LEVE",
+        "codes": [
+          "700",
+          "703"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  MEDIO",
+        "codes": [
+          "701",
+          "704"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVESTIMIENTO COMPARTIMIENTO DE MOTO",
+        "codes": [
+          "866",
+          "867",
+          "868"
+        ],
+        "count": 3
+      },
+      {
+        "description": "D+M TAPA CAJUELA LEVE",
+        "codes": [
+          "223",
+          "224",
+          "225"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PULIDO Y ENCERADO",
+        "codes": [
+          "121",
+          "PE1"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA GRAVE",
+        "codes": [
+          "104",
+          "249"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA LEVE",
+        "codes": [
+          "102",
+          "247"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA MEDIO",
+        "codes": [
+          "103",
+          "248"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BISAGRAS  LEVE",
+        "codes": [
+          "130",
+          "132"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR CALAVERA  MEDIO",
+        "codes": [
+          "251",
+          "253"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR FACIA  GRAVE",
+        "codes": [
+          "497",
+          "498",
+          "499"
+        ],
+        "count": 3
+      },
+      {
+        "description": "REPARAR FRONTAL GRAVE",
+        "codes": [
+          "564",
+          "565"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR TAPA DE DISTRIBUIDOR DE CABEZA D",
+        "codes": [
+          "950",
+          "951",
+          "952"
+        ],
+        "count": 3
+      },
+      {
+        "description": "REPARAR TIRANTE PUERT  MEDIO",
+        "codes": [
+          "960",
+          "961"
+        ],
+        "count": 2
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO GRAVE",
+        "codes": [
+          "280",
+          "577",
+          "729",
+          "862"
+        ],
+        "count": 4
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO LEVE",
+        "codes": [
+          "278",
+          "575",
+          "727",
+          "860"
+        ],
+        "count": 4
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO MEDIO",
+        "codes": [
+          "279",
+          "576",
+          "728",
+          "861"
+        ],
+        "count": 4
+      },
+      {
+        "description": "PINTAR PUNTA DE BASTIDOR DERECHO/IZQUIER",
+        "codes": [
+          "A93",
+          "A94",
+          "A95"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR PUNTA LARGUERO DEL/TRAS/DER/IZQ.",
+        "codes": [
+          "B86",
+          "B87",
+          "B88"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR SOPORTE INTERNO DE FACIA MEDIO",
+        "codes": [
+          "B74",
+          "B75"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PINTAR SOPORTE LARGUERO DEL/TRAS/DER/IZQ",
+        "codes": [
+          "B83",
+          "B84",
+          "B85"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE ACEITE Y FILTRO EXPRESS",
+        "codes": [
+          "E43",
+          "E40",
+          "E44"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE BALATAS DELANTERAS",
+        "codes": [
+          "B51",
+          "M03"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PROMO CAMBIO DE ACEITE Y FILTRO",
+        "codes": [
+          "3PK",
+          "PA1",
+          "PK1",
+          "PK2",
+          "PK4",
+          "PK5"
+        ],
+        "count": 6
+      },
+      {
+        "description": "CAMBIO DE BULBO DE TEMPERATURA",
+        "codes": [
+          "B28",
+          "B21"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CHICOTE DE VELOCIMETRO",
+        "codes": [
+          "C16",
+          "C29"
+        ],
+        "count": 2
+      },
+      {
+        "description": "DESCONTAMINACION DE CRISTALES",
+        "codes": [
+          "DL1",
+          "D21"
+        ],
+        "count": 2
+      },
+      {
+        "description": "LAVADO DE CARROCERIA",
+        "codes": [
+          "L21",
+          "LV3"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE ANTICONGELANTE",
+        "codes": [
+          "A59",
+          "AST"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE FILTRO DIESEL",
+        "codes": [
+          "F52",
+          "FD1"
+        ],
+        "count": 2
+      },
+      {
+        "description": "VUELVEACASA2",
+        "codes": [
+          "CV2",
+          "VC2"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE MOTOR PROMOCION B13",
+        "codes": [
+          "M38",
+          "M39"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CLUTCH",
+        "codes": [
+          "C67",
+          "C68"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE FLECHA CARDAN",
+        "codes": [
+          "C35",
+          "F01"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CVT",
+        "codes": [
+          "J01",
+          "J07"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CORREGIR RUIDO DE TABLERO",
+        "codes": [
+          "C45",
+          "C46"
+        ],
+        "count": 2
+      }
+    ],
+    "TIERRA_BLANCA": [
+      {
+        "description": "CAMBIAR AMPLIACIÓN GRAVE",
+        "codes": [
+          "046",
+          "047",
+          "048"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIAR ESPEJO  LATERAL PUERTA  LEVE",
+        "codes": [
+          "433",
+          "434",
+          "435"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIAR LAMINA CIERRE MEDIA",
+        "codes": [
+          "602",
+          "603",
+          "604"
+        ],
+        "count": 3
+      },
+      {
+        "description": "D+M PUERTA  GRAVE",
+        "codes": [
+          "780",
+          "781"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  GRAVE",
+        "codes": [
+          "702",
+          "705"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  LEVE",
+        "codes": [
+          "700",
+          "703"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  MEDIO",
+        "codes": [
+          "701",
+          "704"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVESTIMIENTO COMPARTIMIENTO DE MOTO",
+        "codes": [
+          "866",
+          "867",
+          "868"
+        ],
+        "count": 3
+      },
+      {
+        "description": "D+M TAPA CAJUELA LEVE",
+        "codes": [
+          "223",
+          "224",
+          "225"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PULIDO Y ENCERADO",
+        "codes": [
+          "121",
+          "PE1"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA GRAVE",
+        "codes": [
+          "104",
+          "249"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA LEVE",
+        "codes": [
+          "102",
+          "247"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA MEDIO",
+        "codes": [
+          "103",
+          "248"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BISAGRAS  LEVE",
+        "codes": [
+          "130",
+          "132"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR CALAVERA  MEDIO",
+        "codes": [
+          "251",
+          "253"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR FACIA  GRAVE",
+        "codes": [
+          "497",
+          "498",
+          "499"
+        ],
+        "count": 3
+      },
+      {
+        "description": "REPARAR FRONTAL GRAVE",
+        "codes": [
+          "564",
+          "565"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR TAPA DE DISTRIBUIDOR DE CABEZA D",
+        "codes": [
+          "950",
+          "951",
+          "952"
+        ],
+        "count": 3
+      },
+      {
+        "description": "REPARAR TIRANTE PUERT  MEDIO",
+        "codes": [
+          "960",
+          "961"
+        ],
+        "count": 2
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO GRAVE",
+        "codes": [
+          "280",
+          "577",
+          "729",
+          "862"
+        ],
+        "count": 4
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO LEVE",
+        "codes": [
+          "278",
+          "575",
+          "727",
+          "860"
+        ],
+        "count": 4
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO MEDIO",
+        "codes": [
+          "279",
+          "576",
+          "728",
+          "861"
+        ],
+        "count": 4
+      },
+      {
+        "description": "PINTAR PUNTA DE BASTIDOR DERECHO/IZQUIER",
+        "codes": [
+          "A93",
+          "A94",
+          "A95"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR PUNTA LARGUERO DEL/TRAS/DER/IZQ.",
+        "codes": [
+          "B86",
+          "B87",
+          "B88"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR SOPORTE INTERNO DE FACIA MEDIO",
+        "codes": [
+          "B74",
+          "B75"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PINTAR SOPORTE LARGUERO DEL/TRAS/DER/IZQ",
+        "codes": [
+          "B83",
+          "B84",
+          "B85"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE ACEITE Y FILTRO EXPRESS",
+        "codes": [
+          "E43",
+          "E40",
+          "E44"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE BALATAS DELANTERAS",
+        "codes": [
+          "B51",
+          "M03"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PROMO CAMBIO DE ACEITE Y FILTRO",
+        "codes": [
+          "3PK",
+          "PA1",
+          "PK1",
+          "PK2",
+          "PK4",
+          "PK5"
+        ],
+        "count": 6
+      },
+      {
+        "description": "CAMBIO DE BULBO DE TEMPERATURA",
+        "codes": [
+          "B28",
+          "B21"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CHICOTE DE VELOCIMETRO",
+        "codes": [
+          "C16",
+          "C29"
+        ],
+        "count": 2
+      },
+      {
+        "description": "DESCONTAMINACION DE CRISTALES",
+        "codes": [
+          "DL1",
+          "D21"
+        ],
+        "count": 2
+      },
+      {
+        "description": "LAVADO DE CARROCERIA",
+        "codes": [
+          "L21",
+          "LV3"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE ANTICONGELANTE",
+        "codes": [
+          "A59",
+          "AST"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE FILTRO DIESEL",
+        "codes": [
+          "F52",
+          "FD1"
+        ],
+        "count": 2
+      },
+      {
+        "description": "VUELVEACASA2",
+        "codes": [
+          "CV2",
+          "VC2"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE MOTOR PROMOCION B13",
+        "codes": [
+          "M38",
+          "M39"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CLUTCH",
+        "codes": [
+          "C67",
+          "C68"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE FLECHA CARDAN",
+        "codes": [
+          "C35",
+          "F01"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CVT",
+        "codes": [
+          "J01",
+          "J07"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CORREGIR RUIDO DE TABLERO",
+        "codes": [
+          "C45",
+          "C46"
+        ],
+        "count": 2
+      }
+    ],
+    "TUXTEPEC": [
+      {
+        "description": "CAMBIAR AMPLIACIÓN GRAVE",
+        "codes": [
+          "046",
+          "047",
+          "048"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIAR ESPEJO  LATERAL PUERTA  LEVE",
+        "codes": [
+          "433",
+          "434",
+          "435"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIAR LAMINA CIERRE MEDIA",
+        "codes": [
+          "602",
+          "603",
+          "604"
+        ],
+        "count": 3
+      },
+      {
+        "description": "D+M PUERTA  GRAVE",
+        "codes": [
+          "780",
+          "781"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  GRAVE",
+        "codes": [
+          "702",
+          "705"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  LEVE",
+        "codes": [
+          "700",
+          "703"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVEST POSTE  MEDIO",
+        "codes": [
+          "701",
+          "704"
+        ],
+        "count": 2
+      },
+      {
+        "description": "D+M REVESTIMIENTO COMPARTIMIENTO DE MOTO",
+        "codes": [
+          "866",
+          "867",
+          "868"
+        ],
+        "count": 3
+      },
+      {
+        "description": "D+M TAPA CAJUELA LEVE",
+        "codes": [
+          "223",
+          "224",
+          "225"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PULIDO Y ENCERADO",
+        "codes": [
+          "121",
+          "PE1"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA GRAVE",
+        "codes": [
+          "104",
+          "249"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA LEVE",
+        "codes": [
+          "102",
+          "247"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BASE CALAVERA MEDIO",
+        "codes": [
+          "103",
+          "248"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR BISAGRAS  LEVE",
+        "codes": [
+          "130",
+          "132"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR CALAVERA  MEDIO",
+        "codes": [
+          "251",
+          "253"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR FACIA  GRAVE",
+        "codes": [
+          "497",
+          "498",
+          "499"
+        ],
+        "count": 3
+      },
+      {
+        "description": "REPARAR FRONTAL GRAVE",
+        "codes": [
+          "564",
+          "565"
+        ],
+        "count": 2
+      },
+      {
+        "description": "REPARAR TAPA DE DISTRIBUIDOR DE CABEZA D",
+        "codes": [
+          "950",
+          "951",
+          "952"
+        ],
+        "count": 3
+      },
+      {
+        "description": "REPARAR TIRANTE PUERT  MEDIO",
+        "codes": [
+          "960",
+          "961"
+        ],
+        "count": 2
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO GRAVE",
+        "codes": [
+          "280",
+          "577",
+          "729",
+          "862"
+        ],
+        "count": 4
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO LEVE",
+        "codes": [
+          "278",
+          "575",
+          "727",
+          "860"
+        ],
+        "count": 4
+      },
+      {
+        "description": "TIEMPO DE PREPARACION UNICO MEDIO",
+        "codes": [
+          "279",
+          "576",
+          "728",
+          "861"
+        ],
+        "count": 4
+      },
+      {
+        "description": "PINTAR PUNTA DE BASTIDOR DERECHO/IZQUIER",
+        "codes": [
+          "A93",
+          "A94",
+          "A95"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR PUNTA LARGUERO DEL/TRAS/DER/IZQ.",
+        "codes": [
+          "B86",
+          "B87",
+          "B88"
+        ],
+        "count": 3
+      },
+      {
+        "description": "PINTAR SOPORTE INTERNO DE FACIA MEDIO",
+        "codes": [
+          "B74",
+          "B75"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PINTAR SOPORTE LARGUERO DEL/TRAS/DER/IZQ",
+        "codes": [
+          "B83",
+          "B84",
+          "B85"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE ACEITE Y FILTRO EXPRESS",
+        "codes": [
+          "E43",
+          "E40",
+          "E44"
+        ],
+        "count": 3
+      },
+      {
+        "description": "CAMBIO DE BALATAS DELANTERAS",
+        "codes": [
+          "B51",
+          "M03"
+        ],
+        "count": 2
+      },
+      {
+        "description": "PROMO CAMBIO DE ACEITE Y FILTRO",
+        "codes": [
+          "3PK",
+          "PA1",
+          "PK1",
+          "PK2",
+          "PK4",
+          "PK5"
+        ],
+        "count": 6
+      },
+      {
+        "description": "CAMBIO DE BULBO DE TEMPERATURA",
+        "codes": [
+          "B28",
+          "B21"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CHICOTE DE VELOCIMETRO",
+        "codes": [
+          "C16",
+          "C29"
+        ],
+        "count": 2
+      },
+      {
+        "description": "DESCONTAMINACION DE CRISTALES",
+        "codes": [
+          "DL1",
+          "D21"
+        ],
+        "count": 2
+      },
+      {
+        "description": "LAVADO DE CARROCERIA",
+        "codes": [
+          "L21",
+          "LV3"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE ANTICONGELANTE",
+        "codes": [
+          "A59",
+          "AST"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE FILTRO DIESEL",
+        "codes": [
+          "F52",
+          "FD1"
+        ],
+        "count": 2
+      },
+      {
+        "description": "VUELVEACASA2",
+        "codes": [
+          "CV2",
+          "VC2"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE MOTOR PROMOCION B13",
+        "codes": [
+          "M38",
+          "M39"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CLUTCH",
+        "codes": [
+          "C67",
+          "C68"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE FLECHA CARDAN",
+        "codes": [
+          "C35",
+          "F01"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CAMBIO DE CVT",
+        "codes": [
+          "J01",
+          "J07"
+        ],
+        "count": 2
+      },
+      {
+        "description": "CORREGIR RUIDO DE TABLERO",
+        "codes": [
+          "C45",
+          "C46"
+        ],
+        "count": 2
+      }
+    ]
   },
   "code_matrix": [
     {
