@@ -711,17 +711,18 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 999999;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1.5rem;
-  animation: fadeIn 0.25s ease-out;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease-out;
 }
 
 .modal-content {
@@ -731,8 +732,11 @@ body {
   box-shadow: var(--shadow-lg);
   padding: 1.75rem;
   position: relative;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes modalSlideUp {
