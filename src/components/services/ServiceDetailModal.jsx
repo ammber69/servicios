@@ -55,7 +55,7 @@ export default function ServiceDetailModal({ item, onClose }) {
           </div>
         )}
 
-        <div className="modal-body" style={{ maxHeight: '70vh', overflowY: 'auto', padding: '1rem 0' }}>
+        <div className="modal-body" style={{ flex: 1, overflowY: 'auto', padding: '1rem 0' }}>
           <div className="agency-cards-grid">
             {agencies.map(ag => {
               const price = prices[ag] || 0;
