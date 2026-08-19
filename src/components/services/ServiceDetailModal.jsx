@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 
 export default function ServiceDetailModal({ item, onClose }) {
   if (!item) return null;
@@ -16,9 +17,45 @@ export default function ServiceDetailModal({ item, onClose }) {
     TUXTEPEC: 'Tuxtepec'
   };
 
-  return (
-    <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
+  // Lock body scroll while modal is open
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prev; };
+  }, []);
+
+  const modal = (
+    <div
+      style={{
+        position: 'fixed',
+        inset: 0,
+        background: 'rgba(15, 23, 42, 0.78)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
+        zIndex: 99999,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '1.25rem',
+      }}
+      onClick={onClose}
+    >
+      <div
+        style={{
+          background: 'var(--bg-card)',
+          border: '1px solid var(--border-glass)',
+          borderRadius: 'var(--radius-lg)',
+          boxShadow: '0 25px 60px -12px rgba(0,0,0,0.5)',
+          padding: '1.75rem',
+          width: 'min(95vw, 1100px)',
+          maxHeight: '88vh',
+          display: 'flex',
+          flexDirection: 'column',
+          animation: 'modalSlideUp 0.22s cubic-bezier(0.16,1,0.3,1)',
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        {/* Header */}
         <div className="modal-header">
           <div>
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -41,7 +78,7 @@ export default function ServiceDetailModal({ item, onClose }) {
           <button className="btn-close" onClick={onClose}>✕</button>
         </div>
 
-        {/* Cause summary box */}
+        {/* Cause summary */}
         {cause_summary && cause_summary.length > 0 && (
           <div className="cause-alert-box">
             <h4 style={{ color: 'var(--nissan-red)', marginBottom: '0.4rem', fontWeight: '700' }}>
@@ -55,7 +92,8 @@ export default function ServiceDetailModal({ item, onClose }) {
           </div>
         )}
 
-        <div className="modal-body" style={{ flex: 1, overflowY: 'auto', padding: '1rem 0' }}>
+        {/* Scrollable body */}
+        <div style={{ flex: 1, overflowY: 'auto', padding: '1rem 0' }}>
           <div className="agency-cards-grid">
             {agencies.map(ag => {
               const price = prices[ag] || 0;
@@ -135,10 +173,13 @@ export default function ServiceDetailModal({ item, onClose }) {
           </div>
         </div>
 
+        {/* Footer */}
         <div className="modal-footer" style={{ textAlign: 'right', marginTop: '1rem' }}>
           <button className="btn btn-secondary" onClick={onClose}>Cerrar Inspección</button>
         </div>
       </div>
     </div>
   );
+
+  return ReactDOM.createPortal(modal, document.body);
 }
