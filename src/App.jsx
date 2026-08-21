@@ -11,6 +11,9 @@ import ServicesAuditTab from './components/services/ServicesAuditTab';
 import ServicesModelComparerTab from './components/services/ServicesModelComparerTab';
 import ServicesMatrixTab from './components/services/ServicesMatrixTab';
 
+// Inventory Component
+import InventoryDashboard from './components/InventoryDashboard';
+
 function App() {
   const [activeModule, setActiveModule] = useState('SERVICIOS'); // 'TRABAJOS' or 'SERVICIOS'
 
@@ -84,7 +87,9 @@ function App() {
             </span>
           </div>
           <h1 className="main-title" style={{ marginTop: '0.4rem' }}>
-            {activeModule === 'SERVICIOS' ? 'Análisis y Auditoría de Paquetes de Servicio' : 'Comparativo y Auditoría de Catálogos de Trabajo'}
+            {activeModule === 'SERVICIOS' ? 'Análisis y Auditoría de Paquetes de Servicio'
+              : activeModule === 'TRABAJOS' ? 'Comparativo y Auditoría de Catálogos de Trabajo'
+              : 'Dashboard de Inventario de Unidades — Gasme Automotriz'}
           </h1>
           <p className="subtitle">
             Diagnóstico para directivos y gerencia: Homologación entre Córdoba, Juchitán, Orizaba, Salina Cruz, Tierra Blanca y Tuxtepec.
@@ -110,6 +115,13 @@ function App() {
             >
               🛠️ Catálogo de Trabajos
               <span className="module-badge">2,223 Únicos</span>
+            </button>
+            <button
+              className={`module-btn ${activeModule === 'INVENTARIO' ? 'active' : ''}`}
+              onClick={() => setActiveModule('INVENTARIO')}
+            >
+              🚗 Inventario de Unidades
+              <span className="module-badge">867 Vehículos</span>
             </button>
           </div>
         </div>
@@ -194,6 +206,9 @@ function App() {
           </main>
         </>
       )}
+
+      {/* Inventory Module */}
+      {activeModule === 'INVENTARIO' && <InventoryDashboard />}
     </div>
   );
 }
