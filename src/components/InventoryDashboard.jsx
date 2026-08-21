@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import GlobalInventoryCounter from './inventory/GlobalInventoryCounter';
 import InventoryKPICards from './inventory/InventoryKPICards';
 import InventoryByAgency from './inventory/InventoryByAgency';
 import InventoryServiceAlert from './inventory/InventoryServiceAlert';
@@ -52,6 +53,9 @@ export default function InventoryDashboard() {
 
   return (
     <div>
+      {/* Executive Global Group Counter Bar */}
+      <GlobalInventoryCounter data={data} />
+
       {/* Tabs */}
       <nav className="tabs-nav">
         {tabs.map(tab => (

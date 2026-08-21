@@ -128,7 +128,7 @@ function App() {
       </header>
 
       {/* Module Content */}
-      {activeModule === 'SERVICIOS' ? (
+      {activeModule === 'SERVICIOS' && (
         <>
           {/* Services KPI Cards */}
           <ServicesSummaryCards data={servicesData} />
@@ -166,7 +166,9 @@ function App() {
             {activeServicesTab === 'MATRIX' && <ServicesMatrixTab data={servicesData} />}
           </main>
         </>
-      ) : (
+      )}
+
+      {activeModule === 'TRABAJOS' && (
         <>
           {/* Jobs KPI Executive Summary */}
           <SummaryCards data={jobsData} />
