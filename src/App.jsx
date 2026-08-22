@@ -96,31 +96,35 @@ function App() {
           </p>
         </div>
 
-        {/* Top-Level Module Switcher */}
+        {/* Top-Level Apple Segmented Control Switcher */}
         <div className="module-switcher-container">
-          <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-secondary)', marginBottom: '0.3rem', textAlign: 'right' }}>
-            MÓDULO ACTIVO:
-          </div>
-          <div className="module-switcher">
+          <div className="module-switcher-label">SECCIÓN ACTIVA</div>
+          <div className="module-switcher" role="tablist" aria-label="Secciones del Dashboard">
             <button
               className={`module-btn ${activeModule === 'SERVICIOS' ? 'active' : ''}`}
               onClick={() => setActiveModule('SERVICIOS')}
+              role="tab"
+              aria-selected={activeModule === 'SERVICIOS'}
             >
-              📦 Paquetes de Servicio
+              <span>📦 Paquetes de Servicio</span>
               <span className="module-badge">64 Combos</span>
             </button>
             <button
               className={`module-btn ${activeModule === 'TRABAJOS' ? 'active' : ''}`}
               onClick={() => setActiveModule('TRABAJOS')}
+              role="tab"
+              aria-selected={activeModule === 'TRABAJOS'}
             >
-              🛠️ Catálogo de Trabajos
+              <span>🛠️ Catálogo de Trabajos</span>
               <span className="module-badge">2,223 Únicos</span>
             </button>
             <button
               className={`module-btn ${activeModule === 'INVENTARIO' ? 'active' : ''}`}
               onClick={() => setActiveModule('INVENTARIO')}
+              role="tab"
+              aria-selected={activeModule === 'INVENTARIO'}
             >
-              🚗 Inventario de Unidades
+              <span>🚗 Inventario de Unidades</span>
               <span className="module-badge">867 Vehículos</span>
             </button>
           </div>
