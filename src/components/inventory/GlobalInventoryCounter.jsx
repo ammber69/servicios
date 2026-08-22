@@ -69,25 +69,25 @@ export default function GlobalInventoryCounter({ data }) {
       <div
         className="section-card"
         style={{
-          background: 'linear-gradient(135deg, rgba(30,41,59,0.9) 0%, rgba(15,23,42,0.95) 100%)',
-          border: '1px solid var(--border-glass)',
-          boxShadow: '0 20px 40px -15px rgba(0,0,0,0.5)',
-          padding: '1.5rem',
+          background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 20px 40px -15px rgba(15, 23, 42, 0.3)',
+          padding: '1.5rem 1.75rem',
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
           <div>
-            <div style={{ fontSize: '0.8rem', fontWeight: '800', color: 'var(--nissan-red)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            <div style={{ fontSize: '0.75rem', fontWeight: '800', color: '#ff4d6d', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               NISSAN GASME AUTOMOTRIZ • CONTEO VITAL DE INVENTARIO
             </div>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: '900', color: 'var(--text-primary)', marginTop: '0.2rem' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: '800', color: '#ffffff', marginTop: '0.2rem' }}>
               📊 Control Global de Permanencia en Stock
             </h2>
           </div>
           <div style={{ textAlign: 'right' }}>
             <button
-              className="btn btn-secondary"
-              style={{ fontSize: '0.8rem', padding: '0.4rem 0.9rem', borderRadius: '99px' }}
+              className="btn"
+              style={{ fontSize: '0.8rem', padding: '0.45rem 1rem', borderRadius: '99px', background: 'rgba(255,255,255,0.12)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.2)' }}
               onClick={() => { setSearchTerm(''); setAgencyFilter('TODAS'); setModalType('ALL'); }}
             >
               🔍 Ver Todo el Inventario ({summary.total_vehicles})

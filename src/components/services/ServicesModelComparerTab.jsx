@@ -70,13 +70,13 @@ export default function ServicesModelComparerTab({ data }) {
       </div>
 
       {/* Model Selector Bar */}
-      <div style={{ background: 'var(--bg-header)', padding: '1rem', borderRadius: '10px', marginBottom: '1.5rem', border: '1px solid var(--border-color)' }}>
-        <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', color: 'var(--accent-cyan)', marginBottom: '0.5rem' }}>
-          🏎️ Seleccionar Modelo / Línea Nissan ({linesList.length} Modelos Registrados):
+      <div style={{ background: '#ffffff', padding: '1.1rem 1.25rem', borderRadius: 'var(--radius-md)', marginBottom: '1.75rem', border: '1px solid rgba(226, 232, 240, 0.8)', boxShadow: 'var(--shadow-sm)' }}>
+        <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
+          🏎️ SELECCIONAR MODELO / LÍNEA NISSAN ({linesList.length} MODELOS):
         </label>
         <select
-          className="search-input"
-          style={{ width: '100%', fontSize: '1rem', padding: '0.6rem 1rem', background: 'var(--bg-card)', color: 'var(--text-primary)', cursor: 'pointer' }}
+          className="select-filter"
+          style={{ width: '100%', fontSize: '0.95rem', fontWeight: '600', padding: '0.7rem 1.1rem' }}
           value={activeLineKey}
           onChange={e => setSelectedLine(e.target.value)}
         >
@@ -91,11 +91,11 @@ export default function ServicesModelComparerTab({ data }) {
       {/* Selected Model Data */}
       {activeLineData && (
         <>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-            <h3 style={{ color: 'var(--text-primary)', margin: 0, fontSize: '1.2rem' }}>
-              Paquetes de Servicio para: <span style={{ color: 'var(--accent-purple)' }}>{activeLineData.full_name}</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+            <h3 style={{ color: 'var(--text-primary)', margin: 0, fontSize: '1.2rem', fontWeight: '800' }}>
+              Paquetes de Servicio para: <span style={{ color: '#2563eb' }}>{activeLineData.full_name}</span>
             </h3>
-            <span className="badge badge-purple" style={{ fontSize: '0.85rem' }}>
+            <span className="apple-status-pill purple" style={{ fontSize: '0.85rem' }}>
               {activeLineData.packages.length} Paquetes Disponibles
             </span>
           </div>

@@ -131,90 +131,108 @@ function App() {
         </div>
       </header>
 
-      {/* Module Content */}
-      {activeModule === 'SERVICIOS' && (
-        <>
-          {/* Services KPI Cards */}
-          <ServicesSummaryCards data={servicesData} />
+      {/* Module Content Container with Transition Animation */}
+      <div key={activeModule} className="apple-module-view">
+        {activeModule === 'SERVICIOS' && (
+          <>
+            {/* Services KPI Executive Banner */}
+            <ServicesSummaryCards data={servicesData} />
 
-          {/* Services Sub-Tabs */}
-          <nav className="tabs-nav">
-            <button
-              className={`tab-btn ${activeServicesTab === 'AUDIT' ? 'active' : ''}`}
-              onClick={() => setActiveServicesTab('AUDIT')}
-            >
-              ⚠️ Auditoría de Inconsistencias y Causa Raíz
-              <span className="tab-badge" style={{ background: activeServicesTab === 'AUDIT' ? 'rgba(255,255,255,0.3)' : 'var(--nissan-red)' }}>
-                {(servicesData?.stats?.composition_mismatch_combinations || 165) + (servicesData?.stats?.local_creations_packages || 4)}
-              </span>
-            </button>
+            {/* Services Sub-Tabs */}
+            <nav className="tabs-nav" role="tablist" aria-label="Navegación de Paquetes de Servicio">
+              <button
+                className={`tab-btn ${activeServicesTab === 'AUDIT' ? 'active' : ''}`}
+                onClick={() => setActiveServicesTab('AUDIT')}
+                role="tab"
+                aria-selected={activeServicesTab === 'AUDIT'}
+              >
+                ⚠️ Auditoría de Inconsistencias y Causa Raíz
+                <span className="tab-badge" style={{ background: activeServicesTab === 'AUDIT' ? 'rgba(255,255,255,0.3)' : 'var(--nissan-red)' }}>
+                  {(servicesData?.stats?.composition_mismatch_combinations || 165) + (servicesData?.stats?.local_creations_packages || 4)}
+                </span>
+              </button>
 
-            <button
-              className={`tab-btn ${activeServicesTab === 'MODEL_COMPARE' ? 'active' : ''}`}
-              onClick={() => setActiveServicesTab('MODEL_COMPARE')}
-            >
-              🚗 Comparativo por Modelo / Línea de Auto
-            </button>
+              <button
+                className={`tab-btn ${activeServicesTab === 'MODEL_COMPARE' ? 'active' : ''}`}
+                onClick={() => setActiveServicesTab('MODEL_COMPARE')}
+                role="tab"
+                aria-selected={activeServicesTab === 'MODEL_COMPARE'}
+              >
+                🚗 Comparativo por Modelo / Línea de Auto
+              </button>
 
-            <button
-              className={`tab-btn ${activeServicesTab === 'MATRIX' ? 'active' : ''}`}
-              onClick={() => setActiveServicesTab('MATRIX')}
-            >
-              📊 Matriz Completa por Paquete (64)
-            </button>
-          </nav>
+              <button
+                className={`tab-btn ${activeServicesTab === 'MATRIX' ? 'active' : ''}`}
+                onClick={() => setActiveServicesTab('MATRIX')}
+                role="tab"
+                aria-selected={activeServicesTab === 'MATRIX'}
+              >
+                📊 Matriz Completa por Paquete (64)
+              </button>
+            </nav>
 
-          <main>
-            {activeServicesTab === 'AUDIT' && <ServicesAuditTab data={servicesData} />}
-            {activeServicesTab === 'MODEL_COMPARE' && <ServicesModelComparerTab data={servicesData} />}
-            {activeServicesTab === 'MATRIX' && <ServicesMatrixTab data={servicesData} />}
-          </main>
-        </>
-      )}
+            <main key={activeServicesTab} className="apple-tab-content">
+              {activeServicesTab === 'AUDIT' && <ServicesAuditTab data={servicesData} />}
+              {activeServicesTab === 'MODEL_COMPARE' && <ServicesModelComparerTab data={servicesData} />}
+              {activeServicesTab === 'MATRIX' && <ServicesMatrixTab data={servicesData} />}
+            </main>
+          </>
+        )}
 
-      {activeModule === 'TRABAJOS' && (
-        <>
-          {/* Jobs KPI Executive Summary */}
-          <SummaryCards data={jobsData} />
+        {activeModule === 'TRABAJOS' && (
+          <>
+            {/* Jobs KPI Executive Summary */}
+            <SummaryCards data={jobsData} />
 
-          {/* Jobs Navigation Tabs */}
-          <nav className="tabs-nav">
-            <button
-              className={`tab-btn ${activeJobsTab === 'AUDIT' ? 'active' : ''}`}
-              onClick={() => setActiveJobsTab('AUDIT')}
-            >
-              ⚠️ Auditoría de Inconsistencias y Creaciones Locales
-              <span className="tab-badge" style={{ background: activeJobsTab === 'AUDIT' ? 'rgba(255,255,255,0.3)' : 'var(--nissan-red)' }}>
-                {(jobsData?.stats?.local_creations || 83) + (jobsData?.stats?.critical_collisions || 131)}
-              </span>
-            </button>
+            {/* Jobs Navigation Tabs */}
+            <nav className="tabs-nav" role="tablist" aria-label="Navegación de Catálogo de Trabajos">
+              <button
+                className={`tab-btn ${activeJobsTab === 'AUDIT' ? 'active' : ''}`}
+                onClick={() => setActiveJobsTab('AUDIT')}
+                role="tab"
+                aria-selected={activeJobsTab === 'AUDIT'}
+              >
+                ⚠️ Auditoría de Inconsistencias y Creaciones Locales
+                <span className="tab-badge" style={{ background: activeJobsTab === 'AUDIT' ? 'rgba(255,255,255,0.3)' : 'var(--nissan-red)' }}>
+                  {(jobsData?.stats?.local_creations || 83) + (jobsData?.stats?.critical_collisions || 131)}
+                </span>
+              </button>
 
-            <button
-              className={`tab-btn ${activeJobsTab === 'SUMMARY' ? 'active' : ''}`}
-              onClick={() => setActiveJobsTab('SUMMARY')}
-            >
-              📊 Conteo por Categoría y Zona
-            </button>
+              <button
+                className={`tab-btn ${activeJobsTab === 'SUMMARY' ? 'active' : ''}`}
+                onClick={() => setActiveJobsTab('SUMMARY')}
+                role="tab"
+                aria-selected={activeJobsTab === 'SUMMARY'}
+              >
+                📊 Conteo por Categoría y Zona
+              </button>
 
-            <button
-              className={`tab-btn ${activeJobsTab === 'MATRIX' ? 'active' : ''}`}
-              onClick={() => setActiveJobsTab('MATRIX')}
-            >
-              🔍 Matriz Completa por Código (2,223)
-            </button>
-          </nav>
+              <button
+                className={`tab-btn ${activeJobsTab === 'MATRIX' ? 'active' : ''}`}
+                onClick={() => setActiveJobsTab('MATRIX')}
+                role="tab"
+                aria-selected={activeJobsTab === 'MATRIX'}
+              >
+                🔍 Matriz Completa por Código (2,223)
+              </button>
+            </nav>
 
-          {/* Jobs Tab Content */}
-          <main>
-            {activeJobsTab === 'AUDIT' && <DiscrepancyAudit data={jobsData} />}
-            {activeJobsTab === 'SUMMARY' && <CategoryComparisonTable data={jobsData} />}
-            {activeJobsTab === 'MATRIX' && <CatalogMatrixTable data={jobsData} />}
-          </main>
-        </>
-      )}
+            {/* Jobs Tab Content */}
+            <main key={activeJobsTab} className="apple-tab-content">
+              {activeJobsTab === 'AUDIT' && <DiscrepancyAudit data={jobsData} />}
+              {activeJobsTab === 'SUMMARY' && <CategoryComparisonTable data={jobsData} />}
+              {activeJobsTab === 'MATRIX' && <CatalogMatrixTable data={jobsData} />}
+            </main>
+          </>
+        )}
 
-      {/* Inventory Module */}
-      {activeModule === 'INVENTARIO' && <InventoryDashboard />}
+        {/* Inventory Module */}
+        {activeModule === 'INVENTARIO' && (
+          <div className="apple-tab-content">
+            <InventoryDashboard />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

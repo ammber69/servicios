@@ -798,29 +798,107 @@ body {
   color: var(--text-primary);
 }
 
+/* Apple Motion & Transition Keyframes */
+@keyframes appleModuleFade {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes appleTabEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes appleModalEnter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -46%) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes appleAccordionExpand {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+  100% {
+    opacity: 1;
+    max-height: 1200px;
+  }
+}
+
+.apple-module-view {
+  animation: appleModuleFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.apple-tab-content {
+  animation: appleTabEnter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Filter Pills - Apple macOS Style */
+.btn-pill {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-pill:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
 .btn-pill.active {
   background: var(--text-primary);
   color: white;
   border-color: var(--text-primary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
 }
 
-/* Cause Explanation Banner */
+/* Cause Explanation Banner - Apple HIG Restrained Tint */
 .cause-explanation-banner {
-  background: linear-gradient(135deg, rgba(254, 242, 242, 0.9) 0%, rgba(255, 247, 237, 0.9) 100%);
-  border: 1px solid rgba(248, 113, 113, 0.4);
-  border-left: 4px solid var(--nissan-red);
+  background: #fef2f2;
+  border: 1px solid rgba(225, 29, 72, 0.18);
+  border-left: 4px solid #e11d48;
   border-radius: var(--radius-md);
-  padding: 0.85rem 1.1rem;
+  padding: 0.9rem 1.15rem;
   margin: 1rem 0;
+  color: var(--text-primary);
 }
 
 .cause-alert-box {
-  background: linear-gradient(135deg, rgba(254, 242, 242, 0.95) 0%, rgba(255, 237, 213, 0.95) 100%);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: #fffbeb;
+  border: 1px solid rgba(217, 119, 6, 0.2);
   border-radius: var(--radius-md);
   padding: 1rem 1.25rem;
   margin-bottom: 1.25rem;
+  color: var(--text-primary);
 }
 
 /* Audit Cards */
@@ -834,14 +912,15 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 1.35rem 1.5rem;
+  padding: 1.5rem 1.75rem;
   box-shadow: var(--shadow-sm);
-  transition: var(--transition-normal);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .audit-finding-card:hover {
-  border-color: rgba(195, 0, 47, 0.3);
+  border-color: rgba(195, 0, 47, 0.25);
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .audit-finding-header {
@@ -861,9 +940,9 @@ body {
 }
 
 .agency-strip-card {
-  padding: 0.75rem 0.9rem;
+  padding: 0.85rem 1rem;
   border-radius: var(--radius-md);
-  transition: var(--transition-fast);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .agency-strip-title {
@@ -875,6 +954,7 @@ body {
 .agency-strip-price {
   font-size: 1.15rem;
   font-weight: 800;
+  font-family: var(--font-mono);
   color: var(--text-primary);
   margin-top: 0.2rem;
 }
@@ -886,13 +966,13 @@ body {
   color: var(--text-secondary);
 }
 
-/* Modal Styles - Standard fixed viewport popup */
+/* macOS Sheet Modal Backdrop & Content */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   z-index: 999999;
   animation: fadeIn 0.2s ease-out;
 }
@@ -905,19 +985,14 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
-  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.45);
-  padding: 1.75rem;
-  width: min(95vw, 1100px);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.35);
+  padding: 2rem;
+  width: min(95vw, 1150px);
   max-height: 88vh;
   display: flex;
   flex-direction: column;
   z-index: 1000000;
-  animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes modalSlideUp {
-  from { opacity: 0; transform: translateY(20px) scale(0.97); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  animation: appleModalEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .modal-header {
@@ -926,15 +1001,15 @@ body {
   align-items: flex-start;
   border-bottom: 1px solid var(--border-subtle);
   padding-bottom: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .btn-close {
   background: rgba(15, 23, 42, 0.06);
   border: none;
-  font-size: 1.2rem;
-  width: 32px;
-  height: 32px;
+  font-size: 1.1rem;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   cursor: pointer;
   color: var(--text-secondary);
@@ -970,24 +1045,26 @@ body {
 }
 
 .btn {
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1.15rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-sans);
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   border: none;
-  transition: var(--transition-fast);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary {
   background: var(--nissan-red);
   color: white;
-  box-shadow: 0 4px 12px rgba(195, 0, 47, 0.3);
+  box-shadow: 0 4px 14px rgba(195, 0, 47, 0.25);
 }
 
 .btn-primary:hover {
   background: var(--nissan-red-dark);
   transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(195, 0, 47, 0.35);
 }
 
 .btn-secondary {
@@ -999,5 +1076,6 @@ body {
 .btn-secondary:hover {
   background: var(--bg-hover);
   border-color: var(--text-secondary);
+  transform: translateY(-1px);
 }
 

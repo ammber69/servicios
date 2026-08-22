@@ -92,13 +92,13 @@ export default function ServicesAuditTab({ data }) {
             Identificación automática del <strong>por qué de cada discrepancia</strong>: combos incompletos (omisión de aceite/filtro o mano de obra), sustitución de lubricantes y variaciones extremas de precio entre agencias.
           </p>
         </div>
-        <div style={{ fontWeight: '700', color: 'var(--nissan-red)', background: 'rgba(195, 20, 50, 0.1)', padding: '0.5rem 1rem', borderRadius: '8px', border: '1px solid var(--nissan-red)' }}>
+        <div className="apple-status-pill danger" style={{ fontSize: '0.85rem' }}>
           🚨 {auditItems.length} Combinaciones Inconsistentes Identificadas
         </div>
       </div>
 
       {/* Filter Tabs & Search Bar */}
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '1.5rem' }}>
+      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '1.75rem' }}>
         <div className="filter-pills" style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', flex: 1 }}>
           <button
             className={`btn-pill ${filterType === 'ALL' ? 'active' : ''}`}
@@ -109,28 +109,24 @@ export default function ServicesAuditTab({ data }) {
           <button
             className={`btn-pill ${filterType === 'INCOMPLETE' ? 'active' : ''}`}
             onClick={() => setFilterType('INCOMPLETE')}
-            style={{ borderColor: 'var(--nissan-red)' }}
           >
             ⚠️ Combos Incompletos ({auditItems.filter(i => i.flags.isIncompleteCombo).length})
           </button>
           <button
             className={`btn-pill ${filterType === 'SYNTHETIC' ? 'active' : ''}`}
             onClick={() => setFilterType('SYNTHETIC')}
-            style={{ borderColor: 'var(--accent-purple)' }}
           >
             🧪 Sintético vs Mineral ({auditItems.filter(i => i.flags.isSyntheticMismatch).length})
           </button>
           <button
             className={`btn-pill ${filterType === 'PRICE_EXTREME' ? 'active' : ''}`}
             onClick={() => setFilterType('PRICE_EXTREME')}
-            style={{ borderColor: 'var(--accent-amber)' }}
           >
             💸 Dif. Precio Extrema &gt; $200 ({auditItems.filter(i => i.flags.isExtremePriceDiff).length})
           </button>
           <button
             className={`btn-pill ${filterType === 'LOCAL' ? 'active' : ''}`}
             onClick={() => setFilterType('LOCAL')}
-            style={{ borderColor: 'var(--accent-purple)' }}
           >
             🟣 Creaciones Locales ({auditItems.filter(i => i.flags.isLocalCreation).length})
           </button>
@@ -160,22 +156,24 @@ export default function ServicesAuditTab({ data }) {
               <div className="audit-finding-header">
                 <div>
                   <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-                    <span className="badge badge-nissan" style={{ fontSize: '0.85rem' }}>
+                    <span className="apple-status-pill danger" style={{ fontSize: '0.75rem' }}>
                       PAQUETE: {item.numpaq}
                     </span>
-                    <span className="badge badge-purple" style={{ fontSize: '0.85rem' }}>
+                    <span className="apple-status-pill purple" style={{ fontSize: '0.75rem' }}>
                       MODELO: {item.line_code} - {item.line_name}
                     </span>
                     {item.flags.isLocalCreation && (
-                      <span className="badge badge-purple">🟣 EXCLUSIVO 1 AGENCIA</span>
+                      <span className="apple-status-pill purple" style={{ fontSize: '0.75rem' }}>
+                        🟣 EXCLUSIVO 1 AGENCIA
+                      </span>
                     )}
                     {item.price_diff > 5 && (
-                      <span className="badge badge-danger">
-                        💸 Rango de Precio: ${item.price_min.toLocaleString('es-MX', { minimumFractionDigits: 2 })} - ${item.price_max.toLocaleString('es-MX', { minimumFractionDigits: 2 })} (Dif: ${item.price_diff.toLocaleString('es-MX', { minimumFractionDigits: 2 })} MXN)
+                      <span className="apple-status-pill warning" style={{ fontSize: '0.75rem' }}>
+                        💸 Rango: ${item.price_min.toLocaleString('es-MX', { minimumFractionDigits: 2 })} - ${item.price_max.toLocaleString('es-MX', { minimumFractionDigits: 2 })} (Dif: ${item.price_diff.toLocaleString('es-MX', { minimumFractionDigits: 2 })} MXN)
                       </span>
                     )}
                   </div>
-                  <h3 style={{ margin: '0.4rem 0 0.2rem 0', color: 'var(--text-primary)', fontSize: '1.15rem' }}>
+                  <h3 style={{ margin: '0.5rem 0 0.2rem 0', color: 'var(--text-primary)', fontSize: '1.2rem', fontWeight: '700' }}>
                     {item.primary_name}
                   </h3>
                 </div>
@@ -183,7 +181,6 @@ export default function ServicesAuditTab({ data }) {
                 <button
                   className="btn btn-primary"
                   onClick={() => setSelectedItem(item)}
-                  style={{ fontSize: '0.85rem', padding: '0.4rem 0.8rem' }}
                 >
                   🔍 Ver Desglose Lado a Lado
                 </button>
@@ -191,14 +188,14 @@ export default function ServicesAuditTab({ data }) {
 
               {/* Explicit Cause Explanation Banner */}
               <div className="cause-explanation-banner">
-                <div style={{ fontWeight: '700', color: 'var(--nissan-red)', marginBottom: '0.2rem', fontSize: '0.85rem' }}>
+                <div style={{ fontWeight: '700', color: '#e11d48', marginBottom: '0.3rem', fontSize: '0.8rem', letterSpacing: '0.04em' }}>
                   📌 CAUSA RAÍZ DE LA DISCREPANCIA:
                 </div>
-                <div style={{ fontSize: '0.9rem', color: 'var(--text-primary)', lineHeight: '1.4' }}>
+                <div style={{ fontSize: '0.875rem', color: 'var(--text-primary)', lineHeight: '1.4' }}>
                   {item.cause_summary && item.cause_summary.length > 0 ? (
                     item.cause_summary.map((cause, cIdx) => (
                       <div key={cIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.2rem' }}>
-                        <span>•</span>
+                        <span style={{ color: '#e11d48', fontWeight: '700' }}>•</span>
                         <span>{cause}</span>
                       </div>
                     ))
@@ -215,21 +212,24 @@ export default function ServicesAuditTab({ data }) {
                   const classification = item.classifications[ag] || {};
                   const isPresent = item.agencies_present.includes(ag);
 
-                  let borderStyle = '1px solid var(--border-color)';
-                  let bgStyle = 'var(--bg-card)';
+                  let borderStyle = '1px solid rgba(226, 232, 240, 0.8)';
+                  let bgStyle = '#ffffff';
 
                   if (!isPresent) {
-                    borderStyle = '1px dashed var(--border-color)';
-                    bgStyle = 'rgba(255,255,255,0.02)';
+                    borderStyle = '1px dashed rgba(203, 213, 225, 0.6)';
+                    bgStyle = '#f8fafc';
                   } else if (classification.status === 'LABOR_ONLY') {
-                    borderStyle = '1px solid var(--nissan-red)';
-                    bgStyle = 'rgba(195, 20, 50, 0.08)';
+                    borderStyle = '1px solid rgba(225, 29, 72, 0.3)';
+                    bgStyle = '#fef2f2';
                   } else if (classification.status === 'PARTS_ONLY') {
-                    borderStyle = '1px solid var(--accent-amber)';
-                    bgStyle = 'rgba(245, 158, 11, 0.08)';
+                    borderStyle = '1px solid rgba(217, 119, 6, 0.3)';
+                    bgStyle = '#fffbeb';
                   } else if (classification.status === 'COMPLETE_SYNTHETIC') {
-                    borderStyle = '1px solid var(--accent-purple)';
-                    bgStyle = 'rgba(168, 85, 247, 0.08)';
+                    borderStyle = '1px solid rgba(124, 58, 237, 0.3)';
+                    bgStyle = '#f5f3ff';
+                  } else if (classification.status === 'COMPLETE') {
+                    borderStyle = '1px solid rgba(5, 150, 105, 0.3)';
+                    bgStyle = '#ecfdf5';
                   }
 
                   return (
@@ -249,7 +249,7 @@ export default function ServicesAuditTab({ data }) {
                           </div>
                         </>
                       ) : (
-                        <div style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', marginTop: '0.4rem' }}>
+                        <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem', marginTop: '0.4rem' }}>
                           ❌ No Cargado
                         </div>
                       )}

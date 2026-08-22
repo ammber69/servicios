@@ -25,66 +25,38 @@ export default function ServiceDetailModal({ item, onClose }) {
   }, []);
 
   const modal = (
-    <div
-      style={{
-        position: 'fixed',
-        inset: 0,
-        background: 'rgba(15, 23, 42, 0.78)',
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)',
-        zIndex: 99999,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '1.25rem',
-      }}
-      onClick={onClose}
-    >
-      <div
-        style={{
-          background: 'var(--bg-card)',
-          border: '1px solid var(--border-glass)',
-          borderRadius: 'var(--radius-lg)',
-          boxShadow: '0 25px 60px -12px rgba(0,0,0,0.5)',
-          padding: '1.75rem',
-          width: 'min(95vw, 1100px)',
-          maxHeight: '88vh',
-          display: 'flex',
-          flexDirection: 'column',
-          animation: 'modalSlideUp 0.22s cubic-bezier(0.16,1,0.3,1)',
-        }}
-        onClick={e => e.stopPropagation()}
-      >
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
         {/* Header */}
         <div className="modal-header">
           <div>
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-              <span className="badge badge-nissan" style={{ fontSize: '0.9rem' }}>
+              <span className="apple-status-pill danger" style={{ fontSize: '0.8rem' }}>
                 PAQUETE: {numpaq}
               </span>
-              <span className="badge badge-purple" style={{ fontSize: '0.9rem' }}>
+              <span className="apple-status-pill purple" style={{ fontSize: '0.8rem' }}>
                 LÍNEA: {line_code} - {line_name}
               </span>
               {price_diff > 5 && (
-                <span className="badge badge-danger" style={{ fontSize: '0.85rem' }}>
+                <span className="apple-status-pill warning" style={{ fontSize: '0.8rem' }}>
                   💸 Dif. Precios: ${price_diff.toLocaleString('es-MX', { minimumFractionDigits: 2 })} MXN
                 </span>
               )}
             </div>
-            <h2 style={{ marginTop: '0.5rem', color: 'var(--text-primary)', fontSize: '1.4rem' }}>
-              Desglose y Comparación por Agencia
+            <h2 style={{ marginTop: '0.6rem', color: 'var(--text-primary)', fontSize: '1.4rem', fontWeight: '800' }}>
+              Desglose y Comparativo Lado a Lado por Agencia
             </h2>
           </div>
-          <button className="btn-close" onClick={onClose}>✕</button>
+          <button className="btn-close" onClick={onClose} aria-label="Cerrar ventana">✕</button>
         </div>
 
         {/* Cause summary */}
         {cause_summary && cause_summary.length > 0 && (
-          <div className="cause-alert-box">
-            <h4 style={{ color: 'var(--nissan-red)', marginBottom: '0.4rem', fontWeight: '700' }}>
-              🚨 Explicación del Origen de la Discrepancia:
-            </h4>
-            <ul style={{ margin: 0, paddingLeft: '1.25rem', color: 'var(--text-primary)', fontSize: '0.9rem' }}>
+          <div className="cause-explanation-banner" style={{ margin: '0 0 1.25rem 0' }}>
+            <div style={{ color: '#e11d48', marginBottom: '0.3rem', fontWeight: '700', fontSize: '0.8rem', letterSpacing: '0.04em' }}>
+              📌 ORIGEN DE LA DISCREPANCIA (CAUSA RAÍZ):
+            </div>
+            <ul style={{ margin: 0, paddingLeft: '1.25rem', color: 'var(--text-primary)', fontSize: '0.875rem', lineHeight: '1.4' }}>
               {cause_summary.map((cause, idx) => (
                 <li key={idx} style={{ marginBottom: '0.2rem' }}>{cause}</li>
               ))}
@@ -93,7 +65,7 @@ export default function ServiceDetailModal({ item, onClose }) {
         )}
 
         {/* Scrollable body */}
-        <div style={{ flex: 1, overflowY: 'auto', padding: '1rem 0' }}>
+        <div style={{ flex: 1, overflowY: 'auto', paddingRight: '0.3rem' }}>
           <div className="agency-cards-grid">
             {agencies.map(ag => {
               const price = prices[ag] || 0;
@@ -101,42 +73,62 @@ export default function ServiceDetailModal({ item, onClose }) {
               const classification = classifications[ag] || {};
               const isPresent = items.length > 0;
 
-              let statusBadgeClass = 'badge-success';
-              if (!isPresent) statusBadgeClass = 'badge-secondary';
-              else if (classification.status === 'LABOR_ONLY') statusBadgeClass = 'badge-danger';
-              else if (classification.status === 'PARTS_ONLY') statusBadgeClass = 'badge-warning';
-              else if (classification.status === 'COMPLETE_SYNTHETIC') statusBadgeClass = 'badge-purple';
+              let pillClass = 'success';
+              let borderStyle = '1px solid rgba(226, 232, 240, 0.8)';
+              let bgStyle = '#ffffff';
+
+              if (!isPresent) {
+                pillClass = 'warning';
+                borderStyle = '1px dashed rgba(203, 213, 225, 0.6)';
+                bgStyle = '#f8fafc';
+              } else if (classification.status === 'LABOR_ONLY') {
+                pillClass = 'danger';
+                borderStyle = '1px solid rgba(225, 29, 72, 0.3)';
+                bgStyle = '#fef2f2';
+              } else if (classification.status === 'PARTS_ONLY') {
+                pillClass = 'warning';
+                borderStyle = '1px solid rgba(217, 119, 6, 0.3)';
+                bgStyle = '#fffbeb';
+              } else if (classification.status === 'COMPLETE_SYNTHETIC') {
+                pillClass = 'purple';
+                borderStyle = '1px solid rgba(124, 58, 237, 0.3)';
+                bgStyle = '#f5f3ff';
+              } else if (classification.status === 'COMPLETE') {
+                pillClass = 'success';
+                borderStyle = '1px solid rgba(5, 150, 105, 0.3)';
+                bgStyle = '#ecfdf5';
+              }
 
               return (
                 <div
                   key={ag}
                   className="agency-detail-card"
                   style={{
-                    border: isPresent ? '1px solid var(--border-color)' : '1px dashed var(--border-color)',
-                    opacity: isPresent ? 1 : 0.6,
-                    background: isPresent ? 'var(--bg-card)' : 'var(--bg-secondary)'
+                    border: borderStyle,
+                    opacity: isPresent ? 1 : 0.65,
+                    background: bgStyle
                   }}
                 >
                   <div className="agency-detail-card-header">
-                    <h3 style={{ margin: 0, fontSize: '1.05rem', color: 'var(--accent-cyan)' }}>
+                    <h3 style={{ margin: 0, fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: '700' }}>
                       📍 {agencyDisplayNames[ag]}
                     </h3>
-                    <div className={`badge ${statusBadgeClass}`} style={{ fontSize: '0.75rem', marginTop: '0.3rem' }}>
+                    <div className={`apple-status-pill ${pillClass}`} style={{ fontSize: '0.725rem', marginTop: '0.35rem' }}>
                       {classification.label || (isPresent ? 'Registrado' : 'No Registrado')}
                     </div>
                   </div>
 
                   {isPresent ? (
                     <>
-                      <div className="agency-price-tag">
-                        <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Precio Total Venta:</span>
-                        <div style={{ fontSize: '1.3rem', fontWeight: '800', color: 'var(--nissan-red)' }}>
-                          ${price.toLocaleString('es-MX', { minimumFractionDigits: 2 })} <span style={{ fontSize: '0.75rem' }}>MXN</span>
+                      <div style={{ marginTop: '0.75rem', padding: '0.6rem 0.8rem', background: 'rgba(255,255,255,0.7)', borderRadius: 'var(--radius-sm)', border: '1px solid rgba(226,232,240,0.6)' }}>
+                        <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: '700', textTransform: 'uppercase' }}>Precio Venta Total:</span>
+                        <div style={{ fontSize: '1.35rem', fontWeight: '800', fontFamily: 'var(--font-mono)', color: 'var(--text-primary)' }}>
+                          ${price.toLocaleString('es-MX', { minimumFractionDigits: 2 })} <span style={{ fontSize: '0.75rem', fontWeight: '600' }}>MXN</span>
                         </div>
                       </div>
 
-                      <div style={{ marginTop: '0.75rem' }}>
-                        <h4 style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.4rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.2rem' }}>
+                      <div style={{ marginTop: '0.85rem' }}>
+                        <h4 style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.4rem', borderBottom: '1px solid rgba(226,232,240,0.8)', paddingBottom: '0.3rem' }}>
                           Ítems e Insumos ({items.length}):
                         </h4>
                         <ul className="items-mini-list">
@@ -144,17 +136,17 @@ export default function ServiceDetailModal({ item, onClose }) {
                             const isLabor = it.hortra > 0 || ['PA1', '10K', '20K', '30K', '40K', '50K', '60K'].includes(it.art);
                             const isSynthetic = it.art.includes('EMT') || it.desc.includes('SINTETICO');
                             return (
-                              <li key={idx} style={{ marginBottom: '0.4rem', fontSize: '0.8rem' }}>
+                              <li key={idx} style={{ marginBottom: '0.45rem', fontSize: '0.8rem', paddingBottom: '0.35rem', borderBottom: '1px solid rgba(241,245,249,0.8)' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: '600' }}>
-                                  <span style={{ color: isLabor ? '#38bdf8' : isSynthetic ? '#c084fc' : '#4ade80' }}>
+                                  <span style={{ color: isLabor ? '#2563eb' : isSynthetic ? '#7c3aed' : '#059669' }}>
                                     {isLabor ? '🛠️' : isSynthetic ? '🧪' : '📦'} {it.art}
                                   </span>
-                                  <span>${it.totventra.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span>
+                                  <span style={{ fontFamily: 'var(--font-mono)' }}>${it.totventra.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span>
                                 </div>
-                                <div style={{ color: 'var(--text-secondary)', fontSize: '0.75rem' }}>
+                                <div style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', marginTop: '0.1rem' }}>
                                   {it.desc}
-                                  {it.hortra > 0 && <span style={{ marginLeft: '0.4rem', color: '#38bdf8' }}>({it.hortra} hrs)</span>}
-                                  {it.cantrefmat > 0 && <span style={{ marginLeft: '0.4rem', color: '#4ade80' }}>({it.cantrefmat} cant)</span>}
+                                  {it.hortra > 0 && <span style={{ marginLeft: '0.4rem', color: '#2563eb', fontWeight: '600' }}>({it.hortra} hrs)</span>}
+                                  {it.cantrefmat > 0 && <span style={{ marginLeft: '0.4rem', color: '#059669', fontWeight: '600' }}>({it.cantrefmat} cant)</span>}
                                 </div>
                               </li>
                             );
@@ -163,7 +155,7 @@ export default function ServiceDetailModal({ item, onClose }) {
                       </div>
                     </>
                   ) : (
-                    <div style={{ textAlign: 'center', padding: '2rem 0', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                    <div style={{ textAlign: 'center', padding: '2rem 0', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
                       🚫 Este paquete no está cargado en {agencyDisplayNames[ag]}
                     </div>
                   )}
@@ -174,7 +166,7 @@ export default function ServiceDetailModal({ item, onClose }) {
         </div>
 
         {/* Footer */}
-        <div className="modal-footer" style={{ textAlign: 'right', marginTop: '1rem' }}>
+        <div style={{ textAlign: 'right', marginTop: '1.25rem', paddingTop: '0.85rem', borderTop: '1px solid var(--border-subtle)' }}>
           <button className="btn btn-secondary" onClick={onClose}>Cerrar Inspección</button>
         </div>
       </div>

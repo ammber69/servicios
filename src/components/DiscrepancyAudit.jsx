@@ -109,13 +109,14 @@ export default function DiscrepancyAudit({ data }) {
 
       {/* SUB-TAB 1: LOCAL CREATED JOBS */}
       {activeSubTab === 'LOCAL_CREATED' && (
-        <div style={{ animation: 'fadeIn 0.3s ease-out' }}>
+        <div key="LOCAL_CREATED" className="apple-tab-content">
           <div style={{
-            background: 'linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%)',
-            border: '1px solid #ddd6fe',
+            background: '#ffffff',
+            border: '1px solid rgba(124, 58, 237, 0.2)',
+            borderLeft: '4px solid #7c3aed',
             borderRadius: 'var(--radius-md)',
             padding: '1.25rem 1.5rem',
-            marginBottom: '1.5rem',
+            marginBottom: '1.75rem',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -124,41 +125,27 @@ export default function DiscrepancyAudit({ data }) {
             boxShadow: 'var(--shadow-sm)'
           }}>
             <div>
-              <h3 style={{ color: '#6d28d9', fontSize: '1.05rem', fontWeight: '800', marginBottom: '0.25rem' }}>
+              <h3 style={{ color: 'var(--text-primary)', fontSize: '1.05rem', fontWeight: '800', marginBottom: '0.25rem' }}>
                 🟣 Catálogo Completo de Creaciones Locales ({localJobs.length} Trabajos)
               </h3>
-              <p style={{ color: '#4c1d95', fontSize: '0.875rem' }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
                 Trabajos autogestionados por usuarios en sucursales específicas que no existen en las demás agencias.
               </p>
             </div>
 
             <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
-              <div style={{ display: 'flex', background: 'white', padding: '0.2rem', borderRadius: 'var(--radius-pill)', border: '1px solid #ddd6fe' }}>
+              <div className="module-switcher" role="tablist">
                 <button
-                  className="page-btn"
-                  style={{
-                    borderRadius: 'var(--radius-pill)',
-                    backgroundColor: localViewMode === 'GRID' ? '#6d28d9' : 'transparent',
-                    color: localViewMode === 'GRID' ? 'white' : '#4c1d95',
-                    border: 'none',
-                    padding: '0.45rem 1rem'
-                  }}
+                  className={`module-btn ${localViewMode === 'GRID' ? 'active' : ''}`}
                   onClick={() => setLocalViewMode('GRID')}
                 >
-                  🗂️ Vista Cuadrícula Uniforme
+                  🗂️ Vista Cuadrícula
                 </button>
                 <button
-                  className="page-btn"
-                  style={{
-                    borderRadius: 'var(--radius-pill)',
-                    backgroundColor: localViewMode === 'TABLE' ? '#6d28d9' : 'transparent',
-                    color: localViewMode === 'TABLE' ? 'white' : '#4c1d95',
-                    border: 'none',
-                    padding: '0.45rem 1rem'
-                  }}
+                  className={`module-btn ${localViewMode === 'TABLE' ? 'active' : ''}`}
                   onClick={() => setLocalViewMode('TABLE')}
                 >
-                  📋 Tabla Unificada Directiva
+                  📋 Tabla Unificada
                 </button>
               </div>
             </div>
