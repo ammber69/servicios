@@ -82,7 +82,8 @@ function App() {
       {/* App Header */}
       <header className="app-header">
         <div>
-          <div className="brand-title">
+          <div className="brand-title" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+            <img src="/logo-sucursal.png" alt="Logo Sucursal" style={{ height: '30px', width: 'auto', objectFit: 'contain' }} />
             <span className="brand-badge">NISSAN</span>
             <span style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-secondary)' }}>
               GASME AUTOMOTRIZ · Módulo CRM de Estandarización
