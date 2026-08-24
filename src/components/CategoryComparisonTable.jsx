@@ -52,7 +52,7 @@ export default function CategoryComparisonTable({ data }) {
     <div className="section-card">
       <div className="section-title-bar">
         <div>
-          <h2 className="section-title">📊 Resumen Comparativo de Conteo por Categoría y Zona</h2>
+          <h2 className="section-title">Resumen Comparativo de Conteo por Categoría y Zona</h2>
           <p className="subtitle">
             Conteo de trabajos disponibles en el catálogo de cada agencia desglosado por departamento/categoría.
           </p>

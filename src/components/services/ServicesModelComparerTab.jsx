@@ -27,7 +27,7 @@ export default function ServicesModelComparerTab({ data }) {
         lineMap[lineKey] = {
           line_code: line.line_code,
           line_name: line.line_name,
-          full_name: `${line.line_code} - ${line.line_name}`,
+          full_name: `${line.line_code} · ${line.line_name}`,
           packages: []
         };
       }
@@ -62,7 +62,7 @@ export default function ServicesModelComparerTab({ data }) {
     <div className="section-card">
       <div className="section-title-bar">
         <div>
-          <h2 className="section-title">🚗 Comparativo por Línea / Modelo de Vehículo</h2>
+          <h2 className="section-title">Comparativo por Línea / Modelo de Vehículo</h2>
           <p className="subtitle">
             Selecciona el modelo de automóvil (ej. NP300, Versa, March, Frontier) para auditar y comparar todos los paquetes de servicio disponibles entre las 6 agencias con desglose de causas.
           </p>
@@ -70,13 +70,13 @@ export default function ServicesModelComparerTab({ data }) {
       </div>
 
       {/* Model Selector Bar */}
-      <div style={{ background: '#ffffff', padding: '1.1rem 1.25rem', borderRadius: 'var(--radius-md)', marginBottom: '1.75rem', border: '1px solid rgba(226, 232, 240, 0.8)', boxShadow: 'var(--shadow-sm)' }}>
-        <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
-          🏎️ SELECCIONAR MODELO / LÍNEA NISSAN ({linesList.length} MODELOS):
+      <div style={{ background: 'var(--bg-card)', padding: '1rem 1.15rem', borderRadius: 'var(--radius-md)', marginBottom: '1.75rem', border: '1px solid var(--border-subtle)', boxShadow: 'var(--shadow-sm)' }}>
+        <label style={{ display: 'block', fontSize: '0.7rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
+          SELECCIONAR MODELO / LÍNEA NISSAN ({linesList.length} MODELOS)
         </label>
         <select
           className="select-filter"
-          style={{ width: '100%', fontSize: '0.95rem', fontWeight: '600', padding: '0.7rem 1.1rem' }}
+          style={{ width: '100%', fontSize: '0.9rem', fontWeight: '600', padding: '0.65rem 2.5rem 0.65rem 1rem' }}
           value={activeLineKey}
           onChange={e => setSelectedLine(e.target.value)}
         >
@@ -92,10 +92,10 @@ export default function ServicesModelComparerTab({ data }) {
       {activeLineData && (
         <>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-            <h3 style={{ color: 'var(--text-primary)', margin: 0, fontSize: '1.2rem', fontWeight: '800' }}>
-              Paquetes de Servicio para: <span style={{ color: '#2563eb' }}>{activeLineData.full_name}</span>
+            <h3 style={{ color: 'var(--text-primary)', margin: 0, fontSize: '1.15rem', fontWeight: '800' }}>
+              Paquetes de Servicio para: <span style={{ color: 'var(--status-info)' }}>{activeLineData.full_name}</span>
             </h3>
-            <span className="apple-status-pill purple" style={{ fontSize: '0.85rem' }}>
+            <span className="apple-status-pill info" style={{ fontSize: '0.82rem' }}>
               {activeLineData.packages.length} Paquetes Disponibles
             </span>
           </div>
@@ -149,27 +149,27 @@ export default function ServicesModelComparerTab({ data }) {
                           >
                             {isPresent ? (
                               <div>
-                                <div style={{ fontWeight: '700' }}>
+                                <div style={{ fontWeight: '700', fontSize: '0.82rem' }}>
                                   ${price.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
                                 </div>
                                 {classification.status === 'LABOR_ONLY' && (
-                                  <span className="badge badge-danger" style={{ fontSize: '0.65rem', display: 'block', marginTop: '0.2rem' }}>
-                                    ⚠️ Solo MO
+                                  <span className="badge badge-danger" style={{ fontSize: '0.62rem', display: 'block', marginTop: '0.2rem' }}>
+                                    Solo MO
                                   </span>
                                 )}
                                 {classification.status === 'PARTS_ONLY' && (
-                                  <span className="badge badge-warning" style={{ fontSize: '0.65rem', display: 'block', marginTop: '0.2rem' }}>
-                                    ⚠️ Solo Ref.
+                                  <span className="badge badge-warning" style={{ fontSize: '0.62rem', display: 'block', marginTop: '0.2rem' }}>
+                                    Solo Ref.
                                   </span>
                                 )}
                                 {classification.status === 'COMPLETE_SYNTHETIC' && (
-                                  <span className="badge badge-purple" style={{ fontSize: '0.65rem', display: 'block', marginTop: '0.2rem' }}>
-                                    🧪 Sintético
+                                  <span className="badge badge-purple" style={{ fontSize: '0.62rem', display: 'block', marginTop: '0.2rem' }}>
+                                    Sintético
                                   </span>
                                 )}
                               </div>
                             ) : (
-                              <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>—</span>
+                              <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>N/A</span>
                             )}
                           </td>
                         );
@@ -177,15 +177,15 @@ export default function ServicesModelComparerTab({ data }) {
                       <td style={{ textAlign: 'center' }}>
                         {isIncomplete ? (
                           <span className="badge badge-danger" title="Falta aceite/filtro o mano de obra en alguna agencia">
-                            🚨 Combo Incompleto
+                            Combo Incompleto
                           </span>
                         ) : isSyntheticMismatch ? (
                           <span className="badge badge-purple" title="Una agencia usa aceite sintético y otra mineral">
-                            🧪 Aceite Sintético
+                            Aceite Sintético
                           </span>
                         ) : isDiff ? (
                           <span className="badge badge-warning">
-                            💸 Diff: ${pkgItem.price_diff.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
+                            Dif: ${pkgItem.price_diff.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
                           </span>
                         ) : (
                           <span className="badge badge-success">Alineado</span>
@@ -194,10 +194,10 @@ export default function ServicesModelComparerTab({ data }) {
                       <td style={{ textAlign: 'center' }}>
                         <button
                           className="btn btn-secondary"
-                          style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem' }}
+                          style={{ fontSize: '0.72rem', padding: '0.25rem 0.6rem' }}
                           onClick={() => setSelectedItemModal(pkgItem)}
                         >
-                          🔍 Desglose
+                          Desglose
                         </button>
                       </td>
                     </tr>

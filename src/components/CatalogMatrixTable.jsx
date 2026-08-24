@@ -85,19 +85,21 @@ export default function CatalogMatrixTable({ data }) {
     <div className="section-card">
       <div className="section-title-bar">
         <div>
-          <h2 className="section-title">🔍 Matriz Comparativa de Códigos de Trabajo (2,223 Códigos)</h2>
+          <h2 className="section-title">Matriz Comparativa de Códigos de Trabajo (2,223 Códigos)</h2>
           <p className="subtitle">
             Explora código por código la presencia, diferencias de nombre y estatus de conflicto entre las 6 agencias.
           </p>
         </div>
-        <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+        <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
           Mostrando <strong>{filteredMatrix.length.toLocaleString()}</strong> de <strong>{matrix.length.toLocaleString()}</strong> trabajos
         </div>
       </div>
 
       <div className="filter-bar">
         <div className="search-input-wrapper">
-          <span className="search-icon">🔍</span>
+          <span className="search-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </span>
           <input
             type="text"
             className="search-input"
@@ -118,12 +120,12 @@ export default function CatalogMatrixTable({ data }) {
             setCurrentPage(1);
           }}
         >
-          <option value="ALL">-- Gravedad de Conflicto --</option>
-          <option value="CRITICAL_COLLISION">🚨 Colisiones Críticas (131)</option>
-          <option value="TYPO">✏️ Variantes Ortográficas (73)</option>
-          <option value="STANDARD">🟢 Estandarizados (1,806)</option>
-          <option value="LOCAL">🟣 Creaciones Locales (83)</option>
-          <option value="MISSING_SOME">🟡 Faltantes Parciales (130)</option>
+          <option value="ALL">Gravedad de Conflicto</option>
+          <option value="CRITICAL_COLLISION">Colisiones Críticas (131)</option>
+          <option value="TYPO">Variantes Ortográficas (73)</option>
+          <option value="STANDARD">Estandarizados (1,806)</option>
+          <option value="LOCAL">Creaciones Locales (83)</option>
+          <option value="MISSING_SOME">Faltantes Parciales (130)</option>
         </select>
 
         <select
@@ -134,7 +136,7 @@ export default function CatalogMatrixTable({ data }) {
             setCurrentPage(1);
           }}
         >
-          <option value="ALL">-- Filtrar por Sucursal --</option>
+          <option value="ALL">Filtrar por Sucursal</option>
           <option value="MISSING_ORIZABA">Faltante en ORIZABA</option>
           <option value="MISSING_CORDOBA">Faltante en CÓRDOBA</option>
           <option value="MISSING_JUCHITAN">Faltante en JUCHITÁN</option>
@@ -153,7 +155,7 @@ export default function CatalogMatrixTable({ data }) {
             setCurrentPage(1);
           }}
         >
-          <option value="ALL">-- Departamento / Categoría --</option>
+          <option value="ALL">Departamento / Categoría</option>
           {deptosList.map((d, i) => (
             <option key={i} value={d}>{d}</option>
           ))}
@@ -193,9 +195,9 @@ export default function CatalogMatrixTable({ data }) {
                     <td>
                       <div style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{item.proposed_standard}</div>
                       {item.has_naming_discrepancy && (
-                        <div style={{ fontSize: '0.75rem', marginTop: '0.2rem' }}>
-                          <span style={{ color: item.severity === 'CRITICAL_COLLISION' ? '#fb7185' : '#fbbf24', fontWeight: 'bold' }}>
-                            {item.severity === 'CRITICAL_COLLISION' ? '🚨 Colisión Crítica:' : '✏️ Variante Ortográfica:'}
+                        <div style={{ fontSize: '0.72rem', marginTop: '0.2rem' }}>
+                          <span style={{ color: item.severity === 'CRITICAL_COLLISION' ? 'var(--status-danger)' : 'var(--status-warning)', fontWeight: 'bold' }}>
+                            {item.severity === 'CRITICAL_COLLISION' ? 'Colisión Crítica:' : 'Variante Ortográfica:'}
                           </span>
                           {Object.entries(item.descriptions)
                             .filter(([_, d]) => d)
@@ -207,24 +209,24 @@ export default function CatalogMatrixTable({ data }) {
                         </div>
                       )}
                     </td>
-                    <td style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                    <td style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
                       {mainDepto}
                     </td>
                     <td style={{ textAlign: 'center' }}>
                       {item.severity === 'STANDARD' && (
-                        <span className="badge badge-success">🟢 Estandarizado</span>
+                        <span className="badge badge-success">Estandarizado</span>
                       )}
                       {item.severity === 'CRITICAL_COLLISION' && (
-                        <span className="badge badge-danger">🚨 Colisión Crítica</span>
+                        <span className="badge badge-danger">Colisión Crítica</span>
                       )}
                       {item.severity === 'TYPO' && (
-                        <span className="badge badge-warning">✏️ Variante</span>
+                        <span className="badge badge-warning">Variante</span>
                       )}
                       {item.severity === 'LOCAL' && (
-                        <span className="badge badge-purple">🟣 Local</span>
+                        <span className="badge badge-purple">Local</span>
                       )}
                       {item.severity === 'MISSING_SOME' && (
-                        <span className="badge badge-muted">🟡 Parcial ({item.presence_count}/6)</span>
+                        <span className="badge badge-muted">Parcial ({item.presence_count}/6)</span>
                       )}
                     </td>
                     {branches.map(b => (

@@ -1,4 +1,15 @@
 import React from 'react';
+import {
+  Car,
+  DollarSign,
+  AlertTriangle,
+  Calendar,
+  ShieldAlert,
+  CheckCircle2,
+  Building2,
+  TrendingUp,
+  AlertCircle
+} from 'lucide-react';
 
 const fmt = (n) => n?.toLocaleString('es-MX', { minimumFractionDigits: 2 }) ?? '0.00';
 const fmtInt = (n) => n?.toLocaleString('es-MX') ?? '0';
@@ -6,65 +17,22 @@ const fmtInt = (n) => n?.toLocaleString('es-MX') ?? '0';
 export default function InventoryKPICards({ data }) {
   const { summary, family_distribution, agency_stats } = data;
 
-  const kpis = [
-    {
-      icon: '🚗',
-      label: 'Total Unidades en Inventario',
-      value: fmtInt(summary.total_vehicles),
-      sub: `${fmtInt(summary.total_new)} nuevas · ${fmtInt(summary.total_used)} seminuevos`,
-      color: 'var(--accent-blue)',
-    },
-    {
-      icon: '💰',
-      label: 'Valor Flota Nuevos (0 km)',
-      value: `$${fmt(summary.total_fleet_value)}`,
-      sub: 'MXN en inventario activo',
-      color: 'var(--accent-cyan)',
-    },
-    {
-      icon: '⚠️',
-      label: 'Unidades con Servicio Pendiente',
-      value: fmtInt(summary.total_pending),
-      sub: `${summary.pct_pending}% del inventario nuevo ya superó los 90 días`,
-      color: 'var(--nissan-red)',
-    },
-    {
-      icon: '💸',
-      label: 'Costo Estimado a Cargo de la Casa',
-      value: `$${fmt(summary.total_svc_cost_est)}`,
-      sub: 'Servicios que paga la agencia (no el cliente)',
-      color: '#f59e0b',
-    },
-    {
-      icon: '📅',
-      label: 'Promedio de Días en Inventario',
-      value: `${summary.avg_days} días`,
-      sub: `Máximo registrado: ${fmtInt(summary.max_days)} días`,
-      color: summary.avg_days > 90 ? 'var(--nissan-red)' : '#4ade80',
-    },
-    {
-      icon: '🚨',
-      label: 'Críticos (>180 días)',
-      value: fmtInt(summary.total_svc2 + summary.total_svc3),
-      sub: `2do servicio: ${summary.total_svc2} · 3er servicio: ${summary.total_svc3}`,
-      color: '#ef4444',
-    },
-  ];
-
   return (
     <div>
-      {/* Apple Content-First Inventory Hero Banner */}
+      {/* Executive Inventory Hero Banner */}
       <div className="apple-hero-banner">
         <div className="apple-hero-top">
           <div className="apple-primary-metric">
-            <div className="apple-metric-tag">
-              <span>🚗</span> CONTROL ESTRATÉGICO DE INVENTARIO DE UNIDADES
+            <div className="apple-metric-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+              <Car size={15} />
+              <span>CONTROL ESTRATÉGICO DE INVENTARIO DE UNIDADES</span>
             </div>
             <div className="apple-primary-val-row">
               <span className="apple-primary-val">{fmtInt(summary.total_vehicles)}</span>
               <span className="apple-primary-label">Vehículos en Stock</span>
-              <span className="apple-status-pill warning">
-                ⚠️ {summary.pct_pending}% Alerta de Servicio ({fmtInt(summary.total_pending)} unidades)
+              <span className="apple-status-pill warning" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                <AlertTriangle size={14} />
+                <span>{summary.pct_pending}% Alerta de Servicio ({fmtInt(summary.total_pending)} unidades)</span>
               </span>
             </div>
             <p className="apple-primary-sub">
@@ -112,24 +80,35 @@ export default function InventoryKPICards({ data }) {
 
       {/* Service breakdown bar */}
       <div className="section-card" style={{ marginBottom: '2rem' }}>
-        <h3 style={{ fontWeight: '800', color: 'var(--text-primary)', marginBottom: '1.2rem', fontSize: '1.1rem' }}>
-          📊 Distribución del Estado del Inventario Nuevo (0 km) — {fmtInt(summary.total_new)} unidades
-        </h3>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.2rem' }}>
+          <TrendingUp size={20} color="var(--nissan-red)" />
+          <h3 style={{ fontWeight: '800', color: 'var(--text-primary)', fontSize: '1.1rem' }}>
+            Distribución del Estado del Inventario Nuevo (0 km) · {fmtInt(summary.total_new)} unidades
+          </h3>
+        </div>
+
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
           {[
-            { label: '✅ En Regla', desc: 'Menos de 90 días', count: summary.total_ok, color: '#059669', bg: '#ecfdf5', pct: Math.round(100 * summary.total_ok / summary.total_new) },
-            { label: '⚠️ 1er Servicio', desc: '90–179 días / 5,000 km', count: summary.total_svc1, color: '#d97706', bg: '#fffbeb', pct: Math.round(100 * summary.total_svc1 / summary.total_new) },
-            { label: '🔴 2do Servicio', desc: '180–269 días / 10,000 km', count: summary.total_svc2, color: '#ea580c', bg: '#fff7ed', pct: Math.round(100 * summary.total_svc2 / summary.total_new) },
-            { label: '🚨 3er Servicio', desc: '270+ días / 15,000 km', count: summary.total_svc3, color: '#e11d48', bg: '#fef2f2', pct: Math.round(100 * summary.total_svc3 / summary.total_new) },
-          ].map((s, i) => (
-            <div key={i} style={{ textAlign: 'center', padding: '1.1rem 1rem', background: s.bg, borderRadius: 'var(--radius-md)', border: `1px solid ${s.color}30` }}>
-              <div style={{ fontSize: '2.1rem', fontWeight: '800', color: s.color, lineHeight: 1 }}>{fmtInt(s.count)}</div>
-              <div style={{ fontWeight: '700', color: 'var(--text-primary)', fontSize: '0.875rem', marginTop: '0.4rem', marginBottom: '0.2rem' }}>{s.label}</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>{s.desc}</div>
-              <div style={{ fontSize: '1rem', fontWeight: '800', color: s.color }}>{s.pct}%</div>
-            </div>
-          ))}
+            { label: 'En Regla', desc: 'Menos de 90 días', count: summary.total_ok, color: '#059669', bg: '#ecfdf5', pct: Math.round(100 * summary.total_ok / summary.total_new), icon: CheckCircle2 },
+            { label: '1er Servicio', desc: '90 a 179 días / 5,000 km', count: summary.total_svc1, color: '#d97706', bg: '#fffbeb', pct: Math.round(100 * summary.total_svc1 / summary.total_new), icon: AlertTriangle },
+            { label: '2do Servicio', desc: '180 a 269 días / 10,000 km', count: summary.total_svc2, color: '#ea580c', bg: '#fff7ed', pct: Math.round(100 * summary.total_svc2 / summary.total_new), icon: AlertCircle },
+            { label: '3er Servicio', desc: '270+ días / 15,000 km', count: summary.total_svc3, color: '#e11d48', bg: '#fef2f2', pct: Math.round(100 * summary.total_svc3 / summary.total_new), icon: ShieldAlert },
+          ].map((s, i) => {
+            const IconComp = s.icon;
+            return (
+              <div key={i} style={{ textAlign: 'center', padding: '1.1rem 1rem', background: s.bg, borderRadius: 'var(--radius-md)', border: `1px solid ${s.color}30` }}>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.4rem' }}>
+                  <IconComp size={22} color={s.color} />
+                </div>
+                <div style={{ fontSize: '2.1rem', fontWeight: '800', color: s.color, lineHeight: 1 }}>{fmtInt(s.count)}</div>
+                <div style={{ fontWeight: '700', color: 'var(--text-primary)', fontSize: '0.875rem', marginTop: '0.4rem', marginBottom: '0.2rem' }}>{s.label}</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>{s.desc}</div>
+                <div style={{ fontSize: '1rem', fontWeight: '800', color: s.color }}>{s.pct}%</div>
+              </div>
+            );
+          })}
         </div>
+
         {/* Visual stacked bar */}
         <div style={{ height: '14px', borderRadius: '99px', overflow: 'hidden', display: 'flex', marginBottom: '0.6rem', background: '#f1f5f9' }}>
           {[
@@ -151,9 +130,12 @@ export default function InventoryKPICards({ data }) {
 
         {/* Vehicle Family Distribution */}
         <div className="section-card" style={{ marginBottom: 0 }}>
-          <h3 style={{ fontWeight: '800', fontSize: '1rem', color: 'var(--text-primary)', marginBottom: '1.25rem' }}>
-            🚘 Distribución por Modelo (Flota Nueva)
-          </h3>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem' }}>
+            <Car size={18} color="var(--text-primary)" />
+            <h3 style={{ fontWeight: '800', fontSize: '1rem', color: 'var(--text-primary)' }}>
+              Distribución por Modelo (Flota Nueva)
+            </h3>
+          </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
             {family_distribution.slice(0, 10).map((f, i) => {
               const pct = Math.round(100 * f.count / summary.total_new);
@@ -172,9 +154,12 @@ export default function InventoryKPICards({ data }) {
 
         {/* Agency Risk Summary */}
         <div className="section-card" style={{ marginBottom: 0 }}>
-          <h3 style={{ fontWeight: '800', fontSize: '1rem', color: 'var(--text-primary)', marginBottom: '1.25rem' }}>
-            🏢 Riesgo por Agencia — Vehículos con Servicio Pendiente
-          </h3>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem' }}>
+            <Building2 size={18} color="var(--text-primary)" />
+            <h3 style={{ fontWeight: '800', fontSize: '1rem', color: 'var(--text-primary)' }}>
+              Riesgo por Agencia · Vehículos con Servicio Pendiente
+            </h3>
+          </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
             {[...agency_stats]
               .sort((a, b) => b.pending_services - a.pending_services)
@@ -195,7 +180,7 @@ export default function InventoryKPICards({ data }) {
             })}
           </div>
           <div style={{ marginTop: '1.25rem', fontSize: '0.75rem', color: 'var(--text-muted)', borderTop: '1px solid var(--border-subtle)', paddingTop: '0.75rem' }}>
-            Ratio de unidades con &gt;90 días en stock por sucursal
+            Ratio de unidades con mayor a 90 días en stock por sucursal
           </div>
         </div>
       </div>
@@ -209,21 +194,29 @@ export default function InventoryKPICards({ data }) {
         padding: '1.75rem',
         boxShadow: 'var(--shadow-md)'
       }}>
-        <h3 style={{ color: '#e11d48', fontWeight: '800', marginBottom: '1rem', fontSize: '1.1rem' }}>
-          🚨 Impacto Financiero — Costo de Servicios a Cargo de la Casa
-        </h3>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+          <ShieldAlert size={22} color="#e11d48" />
+          <h3 style={{ color: '#e11d48', fontWeight: '800', fontSize: '1.1rem' }}>
+            Impacto Financiero · Costo de Servicios a Cargo de la Casa
+          </h3>
+        </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
           {[
-            { label: '1er Servicio (×' + summary.total_svc1 + ' unidades)', cost: summary.total_svc1 * 650, icon: '⚠️' },
-            { label: '2do Servicio (×' + summary.total_svc2 + ' unidades)', cost: summary.total_svc2 * 1100, icon: '🔴' },
-            { label: '3er Servicio (×' + summary.total_svc3 + ' unidades)', cost: summary.total_svc3 * 1500, icon: '🚨' },
-          ].map((s, i) => (
-            <div key={i} style={{ textAlign: 'center', padding: '1.1rem 1rem', background: '#fef2f2', borderRadius: 'var(--radius-md)', border: '1px solid rgba(225, 29, 72, 0.15)' }}>
-              <div style={{ fontSize: '1.5rem', marginBottom: '0.2rem' }}>{s.icon}</div>
-              <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', fontWeight: '600', marginBottom: '0.4rem' }}>{s.label}</div>
-              <div style={{ fontSize: '1.3rem', fontWeight: '800', fontFamily: 'var(--font-mono)', color: '#e11d48' }}>${s.cost.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</div>
-            </div>
-          ))}
+            { label: '1er Servicio (×' + summary.total_svc1 + ' unidades)', cost: summary.total_svc1 * 650, icon: AlertTriangle, color: '#d97706' },
+            { label: '2do Servicio (×' + summary.total_svc2 + ' unidades)', cost: summary.total_svc2 * 1100, icon: AlertCircle, color: '#ea580c' },
+            { label: '3er Servicio (×' + summary.total_svc3 + ' unidades)', cost: summary.total_svc3 * 1500, icon: ShieldAlert, color: '#e11d48' },
+          ].map((s, i) => {
+            const IconComp = s.icon;
+            return (
+              <div key={i} style={{ textAlign: 'center', padding: '1.1rem 1rem', background: '#fef2f2', borderRadius: 'var(--radius-md)', border: '1px solid rgba(225, 29, 72, 0.15)' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.3rem' }}>
+                  <IconComp size={22} color={s.color} />
+                </div>
+                <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', fontWeight: '600', marginBottom: '0.4rem' }}>{s.label}</div>
+                <div style={{ fontSize: '1.3rem', fontWeight: '800', fontFamily: 'var(--font-mono)', color: '#e11d48' }}>${s.cost.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</div>
+              </div>
+            );
+          })}
         </div>
         <div style={{ marginTop: '1.25rem', textAlign: 'center', borderTop: '1px solid rgba(226, 232, 240, 0.8)', paddingTop: '1rem' }}>
           <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', fontWeight: '600' }}>Total estimado a cargo de la casa: </span>

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Package, Wrench, Car } from 'lucide-react';
+
 // Jobs Components
 import SummaryCards from './components/SummaryCards';
 import CategoryComparisonTable from './components/CategoryComparisonTable';
@@ -56,9 +58,9 @@ function App() {
     return (
       <div className="app-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
         <div style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--nissan-red)' }}>⚙️</div>
-          <h2 style={{ fontWeight: '800', color: 'var(--nissan-red)' }}>Cargando Catálogos y Paquetes de Servicio Nissan...</h2>
-          <p style={{ color: 'var(--text-secondary)' }}>Procesando 34,994 registros de Paquetes y 12,746 registros de Trabajos (Gasme Automotriz)</p>
+          <div className="loading-spinner"></div>
+          <h2 style={{ fontWeight: '800', color: 'var(--text-primary)', fontSize: '1.2rem' }}>Cargando Catálogos y Paquetes de Servicio</h2>
+          <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem', fontSize: '0.9rem' }}>Procesando 34,994 registros de Paquetes y 12,746 registros de Trabajos</p>
         </div>
       </div>
     );
@@ -67,8 +69,8 @@ function App() {
   if (error) {
     return (
       <div className="app-container" style={{ padding: '3rem', textAlign: 'center' }}>
-        <div className="section-card" style={{ borderColor: 'var(--nissan-red)' }}>
-          <h2 style={{ color: 'var(--nissan-red)', marginBottom: '1rem' }}>❌ Error de Carga</h2>
+        <div className="section-card" style={{ borderColor: 'var(--status-danger)' }}>
+          <h2 style={{ color: 'var(--status-danger)', marginBottom: '1rem', fontWeight: '800' }}>Error de Carga</h2>
           <p>{error}</p>
         </div>
       </div>
@@ -82,14 +84,14 @@ function App() {
         <div>
           <div className="brand-title">
             <span className="brand-badge">NISSAN</span>
-            <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-secondary)' }}>
-              GASME AUTOMOTRIZ • Módulo CRM de Estandarización
+            <span style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-secondary)' }}>
+              GASME AUTOMOTRIZ · Módulo CRM de Estandarización
             </span>
           </div>
           <h1 className="main-title" style={{ marginTop: '0.4rem' }}>
             {activeModule === 'SERVICIOS' ? 'Análisis y Auditoría de Paquetes de Servicio'
               : activeModule === 'TRABAJOS' ? 'Comparativo y Auditoría de Catálogos de Trabajo'
-              : 'Dashboard de Inventario de Unidades — Gasme Automotriz'}
+              : 'Dashboard de Inventario de Unidades'}
           </h1>
           <p className="subtitle">
             Diagnóstico para directivos y gerencia: Homologación entre Córdoba, Juchitán, Orizaba, Salina Cruz, Tierra Blanca y Tuxtepec.
@@ -106,7 +108,8 @@ function App() {
               role="tab"
               aria-selected={activeModule === 'SERVICIOS'}
             >
-              <span>📦 Paquetes de Servicio</span>
+              <Package size={16} style={{ flexShrink: 0 }} />
+              <span>Paquetes de Servicio</span>
               <span className="module-badge">64 Combos</span>
             </button>
             <button
@@ -115,7 +118,8 @@ function App() {
               role="tab"
               aria-selected={activeModule === 'TRABAJOS'}
             >
-              <span>🛠️ Catálogo de Trabajos</span>
+              <Wrench size={16} style={{ flexShrink: 0 }} />
+              <span>Catálogo de Trabajos</span>
               <span className="module-badge">2,223 Únicos</span>
             </button>
             <button
@@ -124,7 +128,8 @@ function App() {
               role="tab"
               aria-selected={activeModule === 'INVENTARIO'}
             >
-              <span>🚗 Inventario de Unidades</span>
+              <Car size={16} style={{ flexShrink: 0 }} />
+              <span>Inventario de Unidades</span>
               <span className="module-badge">867 Vehículos</span>
             </button>
           </div>
@@ -146,7 +151,7 @@ function App() {
                 role="tab"
                 aria-selected={activeServicesTab === 'AUDIT'}
               >
-                ⚠️ Auditoría de Inconsistencias y Causa Raíz
+                Auditoría de Inconsistencias y Causa Raíz
                 <span className="tab-badge" style={{ background: activeServicesTab === 'AUDIT' ? 'rgba(255,255,255,0.3)' : 'var(--nissan-red)' }}>
                   {(servicesData?.stats?.composition_mismatch_combinations || 165) + (servicesData?.stats?.local_creations_packages || 4)}
                 </span>
@@ -158,7 +163,7 @@ function App() {
                 role="tab"
                 aria-selected={activeServicesTab === 'MODEL_COMPARE'}
               >
-                🚗 Comparativo por Modelo / Línea de Auto
+                Comparativo por Modelo / Línea de Auto
               </button>
 
               <button
@@ -167,7 +172,7 @@ function App() {
                 role="tab"
                 aria-selected={activeServicesTab === 'MATRIX'}
               >
-                📊 Matriz Completa por Paquete (64)
+                Matriz Completa por Paquete (64)
               </button>
             </nav>
 
@@ -192,7 +197,7 @@ function App() {
                 role="tab"
                 aria-selected={activeJobsTab === 'AUDIT'}
               >
-                ⚠️ Auditoría de Inconsistencias y Creaciones Locales
+                Auditoría de Inconsistencias y Creaciones Locales
                 <span className="tab-badge" style={{ background: activeJobsTab === 'AUDIT' ? 'rgba(255,255,255,0.3)' : 'var(--nissan-red)' }}>
                   {(jobsData?.stats?.local_creations || 83) + (jobsData?.stats?.critical_collisions || 131)}
                 </span>
@@ -204,7 +209,7 @@ function App() {
                 role="tab"
                 aria-selected={activeJobsTab === 'SUMMARY'}
               >
-                📊 Conteo por Categoría y Zona
+                Conteo por Categoría y Zona
               </button>
 
               <button
@@ -213,7 +218,7 @@ function App() {
                 role="tab"
                 aria-selected={activeJobsTab === 'MATRIX'}
               >
-                🔍 Matriz Completa por Código (2,223)
+                Matriz Completa por Código (2,223)
               </button>
             </nav>
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BarChart3, Building2, AlertTriangle, RefreshCw, Car, AlertCircle } from 'lucide-react';
 import GlobalInventoryCounter from './inventory/GlobalInventoryCounter';
 import InventoryKPICards from './inventory/InventoryKPICards';
 import InventoryByAgency from './inventory/InventoryByAgency';
@@ -25,8 +26,8 @@ export default function InventoryDashboard() {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh' }}>
         <div style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🚗</div>
-          <h2 style={{ color: 'var(--nissan-red)', fontWeight: '800' }}>Cargando Inventario...</h2>
+          <div className="loading-spinner" style={{ margin: '0 auto 1rem auto' }}></div>
+          <h2 style={{ color: 'var(--nissan-red)', fontWeight: '800' }}>Cargando Inventario de Unidades...</h2>
         </div>
       </div>
     );
@@ -35,8 +36,12 @@ export default function InventoryDashboard() {
   if (error) {
     return (
       <div style={{ padding: '3rem', textAlign: 'center' }}>
-        <div className="section-card" style={{ borderColor: 'var(--nissan-red)' }}>
-          <h2 style={{ color: 'var(--nissan-red)' }}>❌ {error}</h2>
+        <div className="section-card" style={{ borderColor: 'var(--status-danger)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--status-danger)', marginBottom: '0.5rem' }}>
+            <AlertCircle size={24} />
+            <h2 style={{ fontWeight: '800' }}>Error al Cargar Datos</h2>
+          </div>
+          <p style={{ color: 'var(--text-secondary)' }}>{error}</p>
         </div>
       </div>
     );
@@ -45,10 +50,10 @@ export default function InventoryDashboard() {
   const { summary } = data;
 
   const tabs = [
-    { id: 'RESUMEN',   label: '📊 Resumen Grupo',           badge: `${summary.total_vehicles} Unidades` },
-    { id: 'AGENCIAS',  label: '🏢 Por Agencia',             badge: `${data.agencies.length} Sucursales` },
-    { id: 'ALERTAS',   label: '⚠️ Alerta Servicios +90d',   badge: summary.total_pending, danger: true },
-    { id: 'USADOS',    label: '🔄 Seminuevos / Intercambio', badge: summary.total_used },
+    { id: 'RESUMEN',   label: 'Resumen Grupo',           icon: BarChart3, badge: `${summary.total_vehicles} Unidades` },
+    { id: 'AGENCIAS',  label: 'Por Agencia',             icon: Building2, badge: `${data.agencies.length} Sucursales` },
+    { id: 'ALERTAS',   label: 'Alerta Servicios +90d',   icon: AlertTriangle, badge: summary.total_pending, danger: true },
+    { id: 'USADOS',    label: 'Seminuevos / Intercambio', icon: RefreshCw, badge: summary.total_used },
   ];
 
   return (
@@ -58,25 +63,29 @@ export default function InventoryDashboard() {
 
       {/* Tabs */}
       <nav className="tabs-nav">
-        {tabs.map(tab => (
-          <button
-            key={tab.id}
-            className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
-            onClick={() => setActiveTab(tab.id)}
-          >
-            {tab.label}
-            <span
-              className="tab-badge"
-              style={{
-                background: activeTab === tab.id
-                  ? 'rgba(255,255,255,0.3)'
-                  : tab.danger ? 'var(--nissan-red)' : 'var(--accent-blue)',
-              }}
+        {tabs.map(tab => {
+          const IconComp = tab.icon;
+          return (
+            <button
+              key={tab.id}
+              className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => setActiveTab(tab.id)}
             >
-              {tab.badge}
-            </span>
-          </button>
-        ))}
+              <IconComp size={15} style={{ flexShrink: 0 }} />
+              <span>{tab.label}</span>
+              <span
+                className="tab-badge"
+                style={{
+                  background: activeTab === tab.id
+                    ? 'rgba(255,255,255,0.3)'
+                    : tab.danger ? 'var(--nissan-red)' : 'var(--status-info)',
+                }}
+              >
+                {tab.badge}
+              </span>
+            </button>
+          );
+        })}
       </nav>
 
       <main>
