@@ -25,7 +25,7 @@ export default function ServicesSummaryCards({ data }) {
             </span>
           </div>
           <p className="apple-primary-sub">
-            Matriz de 34,994 configuraciones entre las 6 agencias (Córdoba, Juchitán, Orizaba, Salina Cruz, Tierra Blanca y Tuxtepec).
+            Matriz de {(data.total_rows_processed || 34995).toLocaleString()} configuraciones entre las 6 agencias (Córdoba, Juchitán, Orizaba, Salina Cruz, Tierra Blanca y Tuxtepec).
           </p>
         </div>
       </div>
@@ -62,7 +62,7 @@ export default function ServicesSummaryCards({ data }) {
           <span className="apple-col-val" style={{ color: 'var(--status-purple)' }}>
             {(stats.local_creations_packages || 0).toLocaleString()}
           </span>
-          <span className="apple-col-desc">Combos exclusivos creados en 1 sola agencia (ej. Córdoba o Juchitán).</span>
+          <span className="apple-col-desc">Combos exclusivos creados en 1 sola agencia (ej. Córdoba u Orizaba).</span>
         </div>
       </div>
     </div>

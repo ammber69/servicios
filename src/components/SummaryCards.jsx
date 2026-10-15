@@ -25,7 +25,7 @@ export default function SummaryCards({ data }) {
             </span>
           </div>
           <p className="apple-primary-sub">
-            Auditoría de 12,746 filas de operaciones y conceptos de mano de obra en las 6 agencias del grupo Gasme Automotriz.
+            Auditoría de {(data.total_rows_processed || 12647).toLocaleString()} filas de operaciones y conceptos de mano de obra en las 6 agencias del grupo Gasme Automotriz.
           </p>
         </div>
       </div>

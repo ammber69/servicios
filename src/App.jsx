@@ -60,7 +60,7 @@ function App() {
         <div style={{ textAlign: 'center' }}>
           <div className="loading-spinner"></div>
           <h2 style={{ fontWeight: '800', color: 'var(--text-primary)', fontSize: '1.2rem' }}>Cargando Catálogos y Paquetes de Servicio</h2>
-          <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem', fontSize: '0.9rem' }}>Procesando 34,994 registros de Paquetes y 12,746 registros de Trabajos</p>
+          <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem', fontSize: '0.9rem' }}>Procesando 34,995 registros de Paquetes y 12,647 registros de Trabajos</p>
         </div>
       </div>
     );

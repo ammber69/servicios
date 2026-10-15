@@ -2,6 +2,14 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 export default function ServiceDetailModal({ item, onClose }) {
+  // Lock body scroll while modal is open
+  useEffect(() => {
+    if (!item) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prev; };
+  }, [item]);
+
   if (!item) return null;
 
   const { numpaq, line_code, line_name, prices, classifications, items_by_agency, cause_summary, price_diff } = item;
@@ -16,13 +24,6 @@ export default function ServiceDetailModal({ item, onClose }) {
     TIERRA_BLANCA: 'Tierra Blanca',
     TUXTEPEC: 'Tuxtepec'
   };
-
-  // Lock body scroll while modal is open
-  useEffect(() => {
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = prev; };
-  }, []);
 
   const getStatusConfig = (status) => {
     switch (status) {
