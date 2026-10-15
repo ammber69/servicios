@@ -1,68 +1,68 @@
 import React from 'react';
-import { Wrench, CheckCircle2 } from 'lucide-react';
 
 export default function SummaryCards({ data }) {
   if (!data) return null;
 
   const totalCodes = data.total_codes || 0;
   const stats = data.stats || {};
-  const standardizedPct = totalCodes ? (((stats.fully_standardized || 0) / totalCodes) * 100).toFixed(1) : 0;
+  const standardizedPct = totalCodes
+    ? (((stats.fully_standardized || 0) / totalCodes) * 100).toFixed(1)
+    : 0;
 
   return (
-    <div className="apple-hero-banner">
-      <div className="apple-hero-top">
-        <div className="apple-primary-metric">
-          <div className="apple-metric-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-            <Wrench size={15} />
-            <span>CATÁLOGO MAESTRO GLOBAL DE TRABAJOS DE SERVICIO</span>
-          </div>
-          <div className="apple-primary-val-row">
-            <span className="apple-primary-val">{totalCodes.toLocaleString()}</span>
-            <span className="apple-primary-label">Códigos Únicos Registrados</span>
-            <span className="apple-status-pill success" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-              <CheckCircle2 size={13} />
-              <span>{standardizedPct}% Coincidencia Grupo ({(stats.fully_standardized || 0).toLocaleString()})</span>
-            </span>
-          </div>
-          <p className="apple-primary-sub">
-            Auditoría de {(data.total_rows_processed || 12647).toLocaleString()} filas de operaciones y conceptos de mano de obra en las 6 agencias del grupo Gasme Automotriz.
-          </p>
+    <div className="executive-master-section">
+      {/* Master Title & Hero Number */}
+      <div className="master-header-row">
+        <div className="master-tag">Catálogo Máster</div>
+        <div className="master-val-row">
+          <span className="master-big-val">{totalCodes.toLocaleString()}</span>
+          <span className="master-val-label">Códigos Únicos Registrados</span>
+          <span className="master-badge-pill success">
+            {standardizedPct}% Coincidencia Grupo
+          </span>
         </div>
       </div>
 
-      <div className="apple-divider-h"></div>
-
-      <div className="apple-metrics-grid">
-        <div className="apple-metric-col">
-          <span className="apple-col-title">Estandarizados 100%</span>
-          <span className="apple-col-val" style={{ color: 'var(--status-success)' }}>
+      {/* 4 Separate Executive KPI Cards */}
+      <div className="executive-kpi-grid">
+        <div className="executive-kpi-card">
+          <span className="executive-kpi-title">Estandarizados</span>
+          <span className="executive-kpi-number">
             {(stats.fully_standardized || 0).toLocaleString()}
           </span>
-          <span className="apple-col-desc">Trabajos idénticos en descripción y código en las 6 agencias.</span>
+          <span className="executive-kpi-desc">
+            Trabajos idénticos en las 6 agencias
+          </span>
         </div>
 
-        <div className="apple-metric-col">
-          <span className="apple-col-title">Colisiones Críticas</span>
-          <span className="apple-col-val" style={{ color: 'var(--status-danger)' }}>
+        <div className="executive-kpi-card">
+          <span className="executive-kpi-title">Colisiones</span>
+          <span className="executive-kpi-number">
             {(stats.critical_collisions || 0).toLocaleString()}
           </span>
-          <span className="apple-col-desc">Mismo código asignado a trabajos totalmente distintos en agencias.</span>
+          <span className="executive-kpi-desc">
+            Mismo código con diferente descripción
+          </span>
         </div>
 
-        <div className="apple-metric-col">
-          <span className="apple-col-title">Variantes Ortográficas</span>
-          <span className="apple-col-val" style={{ color: 'var(--status-warning)' }}>
+        <div className="executive-kpi-card">
+          <span className="executive-kpi-title">Variantes</span>
+          <span className="executive-kpi-number">
             {(stats.minor_typos || 0).toLocaleString()}
           </span>
-          <span className="apple-col-desc">Diferencias menores de redacción o abreviación en el concepto.</span>
+          <span className="executive-kpi-desc">
+            Variaciones ortográficas o abreviaturas
+          </span>
         </div>
 
-        <div className="apple-metric-col">
-          <span className="apple-col-title">Creaciones Locales</span>
-          <span className="apple-col-val" style={{ color: 'var(--status-purple)' }}>
+        <div className="executive-kpi-card">
+          <span className="executive-kpi-title">Creaciones</span>
+          <span className="executive-kpi-number">
             {(stats.local_creations || 0).toLocaleString()}
           </span>
-          <span className="apple-col-desc">Códigos aislados registrados en 1 sola agencia sin homologación.</span>
+          <span className="executive-kpi-desc">
+            Códigos exclusivos en 1 sola agencia
+          </span>
         </div>
       </div>
     </div>

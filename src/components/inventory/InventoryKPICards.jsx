@@ -19,61 +19,50 @@ export default function InventoryKPICards({ data }) {
 
   return (
     <div>
-      {/* Executive Inventory Hero Banner */}
-      <div className="apple-hero-banner">
-        <div className="apple-hero-top">
-          <div className="apple-primary-metric">
-            <div className="apple-metric-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-              <Car size={15} />
-              <span>CONTROL ESTRATÉGICO DE INVENTARIO DE UNIDADES</span>
-            </div>
-            <div className="apple-primary-val-row">
-              <span className="apple-primary-val">{fmtInt(summary.total_vehicles)}</span>
-              <span className="apple-primary-label">Vehículos en Stock</span>
-              <span className="apple-status-pill warning" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-                <AlertTriangle size={14} />
-                <span>{summary.pct_pending}% Alerta de Servicio ({fmtInt(summary.total_pending)} unidades)</span>
-              </span>
-            </div>
-            <p className="apple-primary-sub">
-              Valor Total Flota 0km: <strong>${fmt(summary.total_fleet_value)} MXN</strong> ({fmtInt(summary.total_new)} vehículos nuevos · {fmtInt(summary.total_used)} seminuevos).
-            </p>
+      {/* Executive Inventory Hero Section */}
+      <div className="executive-master-section">
+        <div className="master-header-row">
+          <div className="master-tag">Control de Inventario de Unidades</div>
+          <div className="master-val-row">
+            <span className="master-big-val">{fmtInt(summary.total_vehicles)}</span>
+            <span className="master-val-label">Vehículos en Stock</span>
+            <span className="master-badge-pill warning">
+              {summary.pct_pending}% Alerta de Servicio ({fmtInt(summary.total_pending)} unidades)
+            </span>
           </div>
         </div>
 
-        <div className="apple-divider-h"></div>
-
-        <div className="apple-metrics-grid">
-          <div className="apple-metric-col">
-            <span className="apple-col-title">Valor Flota Nuevos</span>
-            <span className="apple-col-val" style={{ color: 'var(--text-primary)' }}>
+        <div className="executive-kpi-grid">
+          <div className="executive-kpi-card">
+            <span className="executive-kpi-title">Valor Flota Nuevos</span>
+            <span className="executive-kpi-number" style={{ fontSize: '1.45rem' }}>
               ${fmt(summary.total_fleet_value)}
             </span>
-            <span className="apple-col-desc">Inversión activa en vehículos 0 km en grupo.</span>
+            <span className="executive-kpi-desc">Inversión activa en {fmtInt(summary.total_new)} unidades 0km</span>
           </div>
 
-          <div className="apple-metric-col">
-            <span className="apple-col-title">Servicio Pendiente (+90d)</span>
-            <span className="apple-col-val" style={{ color: '#e11d48' }}>
+          <div className="executive-kpi-card">
+            <span className="executive-kpi-title">Alerta +90 Días</span>
+            <span className="executive-kpi-number" style={{ color: '#e11d48' }}>
               {fmtInt(summary.total_pending)}
             </span>
-            <span className="apple-col-desc">Unidades que requieren mantenimiento a cargo de agencia.</span>
+            <span className="executive-kpi-desc">Unidades con servicio preventivo pendiente</span>
           </div>
 
-          <div className="apple-metric-col">
-            <span className="apple-col-title">Costo Estimado Mantenimiento</span>
-            <span className="apple-col-val" style={{ color: '#d97706' }}>
+          <div className="executive-kpi-card">
+            <span className="executive-kpi-title">Costo Estimado</span>
+            <span className="executive-kpi-number" style={{ color: '#d97706', fontSize: '1.45rem' }}>
               ${fmt(summary.total_svc_cost_est)}
             </span>
-            <span className="apple-col-desc">Costo total absorbido por la casa distribuidora.</span>
+            <span className="executive-kpi-desc">Mantenimientos a cargo de distribuidora</span>
           </div>
 
-          <div className="apple-metric-col">
-            <span className="apple-col-title">Promedio Días en Stock</span>
-            <span className="apple-col-val" style={{ color: summary.avg_days > 90 ? '#e11d48' : '#059669' }}>
-              {summary.avg_days} <span style={{ fontSize: '1rem', fontWeight: '600' }}>días</span>
+          <div className="executive-kpi-card">
+            <span className="executive-kpi-title">Estancia Promedio</span>
+            <span className="executive-kpi-number" style={{ color: summary.avg_days > 90 ? '#e11d48' : '#059669' }}>
+              {summary.avg_days} <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>días</span>
             </span>
-            <span className="apple-col-desc">Máximo histórico registrado: {fmtInt(summary.max_days)} días.</span>
+            <span className="executive-kpi-desc">Máximo registrado: {fmtInt(summary.max_days)} días</span>
           </div>
         </div>
       </div>

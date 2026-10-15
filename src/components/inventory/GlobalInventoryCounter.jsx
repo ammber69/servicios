@@ -53,7 +53,7 @@ export default function GlobalInventoryCounter({ data }) {
     modalBadgeColor = 'var(--status-purple)';
   } else if (modalType === 'ALL') {
     targetVehicles = [...vehicles_new, ...vehicles_used];
-    modalTitle = 'Inventario Completo del Grupo (867 Unidades)';
+    modalTitle = `Inventario Completo del Grupo (${summary.total_vehicles || 963} Unidades)`;
     modalBadgeColor = 'var(--text-primary)';
   }
 

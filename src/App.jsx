@@ -79,65 +79,70 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* App Header */}
-      <header className="app-header">
-        <div>
-          <div className="brand-title" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <img src="/logo-sucursal.png" alt="Logo Sucursal" style={{ height: '30px', width: 'auto', objectFit: 'contain' }} />
-            <span className="brand-badge">NISSAN</span>
-            <span style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-secondary)' }}>
-              GASME AUTOMOTRIZ · Módulo CRM de Estandarización
-            </span>
-          </div>
-          <h1 className="main-title" style={{ marginTop: '0.4rem' }}>
-            {activeModule === 'SERVICIOS' ? 'Análisis y Auditoría de Paquetes de Servicio'
-              : activeModule === 'TRABAJOS' ? 'Comparativo y Auditoría de Catálogos de Trabajo'
-              : 'Dashboard de Inventario de Unidades'}
-          </h1>
-          <p className="subtitle">
-            Diagnóstico para directivos y gerencia: Homologación entre Córdoba, Juchitán, Orizaba, Salina Cruz, Tierra Blanca y Tuxtepec.
-          </p>
+      {/* Top Brand Bar & Global Search */}
+      <header className="executive-top-header">
+        <div className="brand-title">
+          <img src="/logo-sucursal.png" alt="Logo Sucursal" className="brand-logo" />
+          <span className="brand-badge-nissan">NISSAN</span>
+          <span className="brand-company-name">GASME AUTOMOTRIZ</span>
         </div>
 
-        {/* Top-Level Apple Segmented Control Switcher */}
-        <div className="module-switcher-container">
-          <div className="module-switcher-label">SECCIÓN ACTIVA</div>
-          <div className="module-switcher" role="tablist" aria-label="Secciones del Dashboard">
-            <button
-              className={`module-btn ${activeModule === 'SERVICIOS' ? 'active' : ''}`}
-              onClick={() => setActiveModule('SERVICIOS')}
-              role="tab"
-              aria-selected={activeModule === 'SERVICIOS'}
-            >
-              <Package size={16} style={{ flexShrink: 0 }} />
-              <span>Paquetes de Servicio</span>
-              <span className="module-badge">64 Combos</span>
-            </button>
-            <button
-              className={`module-btn ${activeModule === 'TRABAJOS' ? 'active' : ''}`}
-              onClick={() => setActiveModule('TRABAJOS')}
-              role="tab"
-              aria-selected={activeModule === 'TRABAJOS'}
-            >
-              <Wrench size={16} style={{ flexShrink: 0 }} />
-              <span>Catálogo de Trabajos</span>
-              <span className="module-badge">2,223 Únicos</span>
-            </button>
-            <button
-              className={`module-btn ${activeModule === 'INVENTARIO' ? 'active' : ''}`}
-              onClick={() => setActiveModule('INVENTARIO')}
-              role="tab"
-              aria-selected={activeModule === 'INVENTARIO'}
-            >
-              <Car size={16} style={{ flexShrink: 0 }} />
-              <span>Inventario de Unidades</span>
-              <span className="module-badge">867 Vehículos</span>
-            </button>
-          </div>
+        <div className="executive-global-search">
+          <input
+            type="text"
+            className="executive-top-search-input"
+            placeholder="Buscar por código, paquete o auto..."
+            readOnly
+            onClick={() => {
+              const el = document.querySelector('.executive-search-input, .search-input');
+              if (el) el.focus();
+            }}
+          />
         </div>
       </header>
 
-      {/* Module Content Container with Transition Animation */}
+      {/* Main Editorial Headline */}
+      <div className="executive-hero-headline">
+        <h1 className="editorial-main-title">
+          {activeModule === 'SERVICIOS' ? 'Análisis y Auditoría de Paquetes de Servicio'
+            : activeModule === 'TRABAJOS' ? 'Comparativo y Auditoría de Catálogos de Trabajo'
+            : 'Control Estratégico de Inventario de Unidades'}
+        </h1>
+        <p className="editorial-subtitle">
+          {activeModule === 'SERVICIOS' ? 'Identificación de discrepancias operativas, combos incompletos y variaciones de precio entre agencias.'
+            : activeModule === 'TRABAJOS' ? 'Diagnóstico directivo: Homologación de códigos, creaciones locales y colisiones críticas en las 6 agencias.'
+            : 'Supervisión en tiempo real de unidades en patio, semáforo de servicios preventivos y seminuevos.'}
+        </p>
+      </div>
+
+      {/* Executive Module Navigation Pills (Mockup Style) */}
+      <div className="executive-module-nav">
+        <button
+          className={`executive-module-pill ${activeModule === 'SERVICIOS' ? 'active' : ''}`}
+          onClick={() => setActiveModule('SERVICIOS')}
+        >
+          <Package size={15} />
+          <span>Paquetes ({servicesData?.total_package_codes || 64})</span>
+        </button>
+
+        <button
+          className={`executive-module-pill ${activeModule === 'TRABAJOS' ? 'active' : ''}`}
+          onClick={() => setActiveModule('TRABAJOS')}
+        >
+          <Wrench size={15} />
+          <span>Catálogo ({(catalogsData?.total_codes || 2223).toLocaleString()})</span>
+        </button>
+
+        <button
+          className={`executive-module-pill ${activeModule === 'INVENTARIO' ? 'active' : ''}`}
+          onClick={() => setActiveModule('INVENTARIO')}
+        >
+          <Car size={15} />
+          <span>Inventario (963)</span>
+        </button>
+      </div>
+
+      {/* Module Content Container */}
       <div key={activeModule} className="apple-module-view">
         {activeModule === 'SERVICIOS' && (
           <>

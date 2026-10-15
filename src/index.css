@@ -1245,3 +1245,540 @@ body {
     flex-direction: column;
   }
 }
+
+/* ==========================================================================
+   EXECUTIVE POLISH REDESIGN SYSTEM — NISSAN GASME AUTOMOTRIZ
+   Editorial serif headlines, 4 individual KPI cards, dark slate cause banner,
+   clean uniform agency strips, zero garish backgrounds, zero emojis.
+   ========================================================================== */
+
+/* ── Top Brand Header ── */
+.executive-top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0 1.25rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1.5rem;
+}
+
+.brand-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.brand-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-badge-nissan {
+  background: var(--nissan-red);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+}
+
+.brand-company-name {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: 0.06em;
+}
+
+.executive-global-search {
+  position: relative;
+}
+
+.executive-top-search-input {
+  width: 280px;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  outline: none;
+  font-family: var(--font-sans);
+  transition: var(--transition-fast);
+}
+
+.executive-top-search-input:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* ── Editorial Headline ── */
+.executive-hero-headline {
+  margin-bottom: 1.5rem;
+}
+
+.editorial-main-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.editorial-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-top: 0.35rem;
+  max-width: 800px;
+}
+
+/* ── Executive Module Navigation ── */
+.executive-module-nav {
+  display: inline-flex;
+  gap: 0.4rem;
+  background: rgba(241, 245, 249, 0.8);
+  padding: 0.35rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 2rem;
+}
+
+.executive-module-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-family: var(--font-sans);
+}
+
+.executive-module-pill:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.executive-module-pill.active {
+  background: #ffffff;
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+/* ── Executive Master Section & 4 KPI Cards ── */
+.executive-master-section {
+  margin-bottom: 2.25rem;
+}
+
+.master-header-row {
+  margin-bottom: 1.25rem;
+}
+
+.master-tag {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  text-transform: none;
+}
+
+.master-val-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.master-big-val {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.master-val-label {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.master-badge-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.master-badge-pill.success {
+  background: #e6fcf5;
+  color: #0ca678;
+  border: 1px solid rgba(12, 166, 120, 0.25);
+}
+
+.master-badge-pill.warning {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid rgba(180, 83, 9, 0.25);
+}
+
+.executive-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .executive-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .executive-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.executive-kpi-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: var(--transition-fast);
+}
+
+.executive-kpi-card:hover {
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.executive-kpi-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.executive-kpi-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.executive-kpi-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Executive Inconsistencias Section ── */
+.executive-section-wrapper {
+  margin-top: 1.5rem;
+}
+
+.executive-section-heading {
+  margin-bottom: 1.25rem;
+}
+
+.section-heading-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.section-heading-sub {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.executive-badge-counter {
+  background: #f1f5f9;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+}
+
+/* ── Filter Toolbar ── */
+.executive-filter-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.filter-pills-row {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.executive-filter-btn {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 0.4rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-family: var(--font-sans);
+}
+
+.executive-filter-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.executive-filter-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.executive-search-wrapper {
+  width: 290px;
+}
+
+.executive-search-input {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  outline: none;
+  font-family: var(--font-sans);
+  transition: var(--transition-fast);
+}
+
+.executive-search-input:focus {
+  border-color: var(--text-primary);
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.06);
+}
+
+/* ── Inconsistency Cards Stack ── */
+.executive-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.executive-empty-state {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 3rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.executive-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.02);
+  transition: var(--transition-fast);
+}
+
+.executive-card:hover {
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.card-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.card-badge-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+}
+
+.card-badge-pill.neutral {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.card-badge-pill.info {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.card-badge-pill.purple {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+
+.card-badge-pill.subtle {
+  background: #f8fafc;
+  color: #334155;
+  border: 1px solid var(--border-subtle);
+}
+
+.executive-pill-btn-dark {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.45rem 1.15rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-family: var(--font-sans);
+}
+
+.executive-pill-btn-dark:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+}
+
+.card-package-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0.75rem 0 0.85rem 0;
+  letter-spacing: -0.01em;
+}
+
+/* ── Executive Cause Banner (Solid Slate, No Emojis) ── */
+.executive-cause-banner {
+  background: #475569;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0.85rem 1.15rem;
+  margin: 0.75rem 0 1rem 0;
+}
+
+.cause-banner-header {
+  color: #f87171;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.cause-banner-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cause-bullet-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: #f1f5f9;
+}
+
+.cause-bullet-dot {
+  color: #f87171;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.cause-bullet-text {
+  flex: 1;
+}
+
+/* ── Executive Agency Grid (6 Equal Columns, Clean Neutral) ── */
+.executive-agency-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.65rem;
+}
+
+@media (max-width: 1024px) {
+  .executive-agency-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .executive-agency-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.executive-agency-cell {
+  background: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.8rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: var(--transition-fast);
+}
+
+.executive-agency-cell:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+}
+
+.executive-agency-cell.absent {
+  background: #fafafa;
+  border: 1px dashed #cbd5e1;
+  opacity: 0.65;
+}
+
+.agency-cell-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.agency-cell-price {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0.1rem 0;
+  font-family: var(--font-sans);
+}
+
+.agency-cell-status {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}

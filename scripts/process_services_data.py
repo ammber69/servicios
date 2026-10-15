@@ -126,9 +126,9 @@ def classify_agency_combo(items):
         else:
             return {'status': 'COMPLETE', 'label': 'Combo Completo (Mano de Obra + Refacciones)', 'has_labor': True, 'has_parts': True, 'oil_type': oil_type}
     elif has_labor and not has_parts:
-        return {'status': 'LABOR_ONLY', 'label': '⚠️ Combo Incompleto: Solo Mano de Obra (Sin Aceite/Filtro)', 'has_labor': True, 'has_parts': False, 'oil_type': oil_type}
+        return {'status': 'LABOR_ONLY', 'label': 'Combo Incompleto: Solo Mano de Obra (Sin Aceite/Filtro)', 'has_labor': True, 'has_parts': False, 'oil_type': oil_type}
     elif has_parts and not has_labor:
-        return {'status': 'PARTS_ONLY', 'label': '⚠️ Combo Incompleto: Solo Refacciones (Sin Mano de Obra)', 'has_labor': False, 'has_parts': True, 'oil_type': oil_type}
+        return {'status': 'PARTS_ONLY', 'label': 'Combo Incompleto: Solo Refacciones (Sin Mano de Obra)', 'has_labor': False, 'has_parts': True, 'oil_type': oil_type}
     else:
         return {'status': 'OTHER', 'label': 'Incompleto / Sin Clasificar', 'has_labor': has_labor, 'has_parts': has_parts, 'oil_type': oil_type}
 
@@ -198,13 +198,13 @@ for np in sorted(list(all_numpaqs)):
         cause_summary = []
         statuses = set(ag_classifications[ag]['status'] for ag in present_agencies)
         if 'LABOR_ONLY' in statuses:
-            cause_summary.append("⚠️ Agencias con Combo Incompleto (solo cobran mano de obra, faltan refacciones/aceite)")
+            cause_summary.append("Agencias con Combo Incompleto (solo cobran mano de obra, faltan refacciones/aceite)")
         if 'PARTS_ONLY' in statuses:
-            cause_summary.append("⚠️ Agencias con Combo Incompleto (solo cobran refacciones, falta mano de obra)")
+            cause_summary.append("Agencias con Combo Incompleto (solo cobran refacciones, falta mano de obra)")
         if 'COMPLETE_SYNTHETIC' in statuses and 'COMPLETE' in statuses:
-            cause_summary.append("🧪 Variación de insumos (Aceite Sintético Embotellado vs Tambo Mineral)")
+            cause_summary.append("Variación de insumos (Aceite Sintético Embotellado vs Tambo Mineral)")
         if has_price_variation:
-            cause_summary.append(f"💸 Diferencia de precio de hasta ${price_diff:,.2f} MXN entre agencias")
+            cause_summary.append(f"Diferencia de precio de hasta ${price_diff:,.2f} MXN entre agencias")
             
         lines_processed.append({
             'line_code': line_code,

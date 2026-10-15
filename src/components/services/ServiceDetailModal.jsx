@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import { stripEmojis } from '../../utils/textUtils';
 
 export default function ServiceDetailModal({ item, onClose }) {
   // Lock body scroll while modal is open
@@ -79,15 +80,18 @@ export default function ServiceDetailModal({ item, onClose }) {
 
         {/* Cause summary */}
         {cause_summary && cause_summary.length > 0 && (
-          <div className="cause-explanation-banner" style={{ margin: '0 0 1.25rem 0' }}>
-            <div style={{ color: 'var(--status-danger)', marginBottom: '0.3rem', fontWeight: '700', fontSize: '0.75rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-              Origen de la Discrepancia (Causa Raíz)
+          <div className="executive-cause-banner" style={{ margin: '0 0 1.25rem 0' }}>
+            <div className="cause-banner-header">
+              Causa Raíz de la Discrepancia
             </div>
-            <ul style={{ margin: 0, paddingLeft: '1.25rem', color: 'var(--text-primary)', fontSize: '0.85rem', lineHeight: '1.5' }}>
+            <div className="cause-banner-body">
               {cause_summary.map((cause, idx) => (
-                <li key={idx} style={{ marginBottom: '0.15rem' }}>{cause}</li>
+                <div key={idx} className="cause-bullet-row">
+                  <span className="cause-bullet-dot">•</span>
+                  <span className="cause-bullet-text">{stripEmojis(cause)}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         )}
 

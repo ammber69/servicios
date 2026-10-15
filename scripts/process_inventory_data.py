@@ -94,10 +94,10 @@ def get_vehicle_family(caract):
         return 'Otro'
 
 SERVICE_LABELS = {
-    'OK':        {'label': 'En Regla (<90 días)', 'color': 'green',  'icon': '✅'},
-    'SVC_1_5K':  {'label': '1er Servicio (90-179 días / 5,000 km)', 'color': 'yellow', 'icon': '⚠️'},
-    'SVC_2_10K': {'label': '2do Servicio (180-269 días / 10,000 km)', 'color': 'orange', 'icon': '🔴'},
-    'SVC_3_15K': {'label': '3er Servicio (270+ días / 15,000 km)', 'color': 'red',    'icon': '🚨'},
+    'OK':        {'label': 'En Regla (<90 días)', 'color': 'green',  'icon': ''},
+    'SVC_1_5K':  {'label': '1er Servicio (90-179 días / 5,000 km)', 'color': 'yellow', 'icon': ''},
+    'SVC_2_10K': {'label': '2do Servicio (180-269 días / 10,000 km)', 'color': 'orange', 'icon': ''},
+    'SVC_3_15K': {'label': '3er Servicio (270+ días / 15,000 km)', 'color': 'red',    'icon': ''},
 }
 
 def main():

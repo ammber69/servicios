@@ -136,7 +136,7 @@ export default function CategoryComparisonTable({ data }) {
       </div>
 
       <div style={{ marginTop: '1.25rem', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-        💡 <strong>Observación clave:</strong> Nota la desalineación en <strong>Orizaba</strong> en el departamento <code>S - SERVICIO</code> (654 trabajos vs. ~985 en las demás agencias) y en <code>C - CARROCERIA</code> (1,243 trabajos vs. 1,101 en las demás agencias).
+        <strong>Observación clave:</strong> Nota la desalineación en <strong>Orizaba</strong> en el departamento <code>S - SERVICIO</code> (654 trabajos vs. ~985 en las demás agencias) y en <code>C - CARROCERIA</code> (1,243 trabajos vs. 1,101 en las demás agencias).
       </div>
     </div>
   );
