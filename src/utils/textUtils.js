@@ -4,6 +4,7 @@
 export function stripEmojis(str) {
   if (!str) return '';
   return str
-    .replace(/[\p{Extended_Pictographic}\u200D\uFE0F]/gu, '')
+    .replace(/\p{Extended_Pictographic}/gu, '')
+    .replace(/[\u200D\uFE0F]/g, '')
     .trim();
 }

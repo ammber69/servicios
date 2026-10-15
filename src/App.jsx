@@ -130,7 +130,7 @@ function App() {
           onClick={() => setActiveModule('TRABAJOS')}
         >
           <Wrench size={15} />
-          <span>Catálogo ({(catalogsData?.total_codes || 2223).toLocaleString()})</span>
+          <span>Catálogo ({(jobsData?.total_codes || 2223).toLocaleString()})</span>
         </button>
 
         <button
